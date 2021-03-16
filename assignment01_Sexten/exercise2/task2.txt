@@ -1,0 +1,52 @@
+- Vary the number of cores by setting the environment variable OMP_NUM_THREADS before running the program, e.g. OMP_NUM_THREADS=1 ./slow.
+ Measure the execution times of all three programs for all numbers of cores your personal computing system (e.g. PC or laptop) offers.
+
+Threads	    1	    2	    3	    4	    5	    6	    7	    8
+Slow	0.7459	1.7550	3.6643	4.8453	5.8946	6.0502	6.5010	7.0244
+Medium	0.2601	0.9227	1.5776	1.6247	1.6516	1.6635	1.7308	1.6508
+Fast	0.1130	0.0556	0.0388	0.0351	0.0343	0.0312	0.0291	0.0258
+
+
+- See if you can reduce the execution times even further by trying out different compiler flags (optimization flags).
+
+With maximal Optimazion (O3) i can reduce the execution time for the fast algorithm.
+The time for the slow and sedium algorithms stays almost the same.
+
+O3
+Threads	    1	    2	    3	    4	    5	    6	    7	    8
+Slow	0.7455	1.5612	3.4482	4.6174	5.3702	6.2991	5.7278	7.8392
+Medium	0.2805	0.8220	1.5812	1.0380	1.6388	1.7862	1.8859	1.7647
+Fast	0.0000	0.0001	0.0001	0.0001	0.0001	0.0002	0.0002	0.0002
+
+
+- Create a table and figures that illustrate the measured data and study them. What effects can you observe?
+
+By looking on the tables above i can observe that the execution time for the slow and medium algorithm is increasing with an increasing number of cores.
+Only the fast algorithm gets a lower execution time when using more cores.
+It looks like that parallelization only works in the non optimized fast algorithm, so in the optimized one the overhead for parallelization is bigger than the speedup in counting.
+
+
+- How stable are the measurements when running the experiments multiple times?
+
+I get a lot of spread in the slow and medium algorithm, the spread in the fast algorithm is not so big.
+
+
+With -O3
+1 s/m/f  2.02680 s    0.7129 s   0.0000 s
+2 s/m/f  6.50580 s    2.6672 s   0.0001 s
+3 s/m/f  15.1605 s    3.1562 s   0.0001 s
+4 s/m/f  34.4023 s    3.2996 s   0.0002 s
+5 s/m/f  41.0053 s    3.6545 s   0.0002 s
+6 s/m/f  42.0747 s    3.9610 s   0.0002 s
+7 s/m/f  55.5654 s    4.4959 s   0.0046 s
+8 s/m/f  68.0439 s    6.1234 s   0.0003 s
+
+Without optimization
+1 s/m/f  2.32430 s    1.0528 s   0.1889 s
+2 s/m/f  10.5288 s    2.2787 s   0.0948 s
+3 s/m/f  13.1227 s    4.5139 s   0.0632 s
+4 s/m/f  31.8338 s    4.4932 s   0.0474 s
+5 s/m/f  40.1088 s    5.5260 s   0.0394 s
+6 s/m/f  48.6487 s    5.1621 s   0.0321 s
+7 s/m/f  57.8604 s    6.1888 s   0.0278 s
+8 s/m/f  68.9125 s    6.7343 s   0.0243 s

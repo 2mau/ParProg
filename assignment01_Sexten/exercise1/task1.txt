@@ -1,0 +1,45 @@
+- How is the speedup of a parallel program defined?
+ The speedup factor of a program is defined as:
+ the relation of single processor execution time to multiprocessor execution time.
+
+
+- What is the formal definition of Amdahl's law and what relationship does it describe
+  for parallel programs (explain in your own words)? Why/How is this significant?
+  The formal definition is:
+  n = ts/(f*ts+(1-f)*ts/p) = p/(1+(p-1)f)
+
+  With
+  ts = total task time
+  f = factor that can't be parrallelized
+  p = amount of processors
+
+  It is significant because it describes the speedup in relation to the processors we are using.
+  With this formula we can also compute the maximum speedup using an infinite amount of processors.
+
+
+- Compute the theoretical speedup of a program that spends 10% of its time in un-parallelized,
+  sequential regions for 6 cores and for a hypothetically unlimited number of cores.
+  For 6 cores:
+  p = 6, f = 0.1
+  n = 6/(1+(6-1)*0.1) = 4
+
+  For infinite cores:
+  lim p->infinity p/(1+(p-1)f) = 1/f -> 1/0.1 = 10
+
+
+- Compute the theoretical speedup of a program that spends 20% of its time in un-parallelized,
+  sequential regions for 6 cores and for a hypothetically unlimited number of cores.
+  For 6 cores:
+  p = 6, f = 0.2
+  n = 6/(1+(6-1)*0.2) = 3
+
+  For infinite cores:
+  1/f -> 1/0.2 = 5
+
+
+- Given an algorithm of time complexity O(n^3). How large (in %) can the un-parallelized,
+  sequential region be at most, such that a speedup of 10 can be achieved using 64 cores?
+  10 <= 64/(1+63f)
+  10 + 630f <= 64
+  630f <= 54
+  f <= 54/630 = 3/35 ~ 8.6%
