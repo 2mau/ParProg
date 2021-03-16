@@ -38,6 +38,36 @@ function calc_mandelbrot(image):
 - Check out the generated image `mandelbrot.png` to see if you implemented the algorithm correctly. 
 - Benchmark your program on the LCC2 cluster, document your results and add them to the comparison spreadsheet linked on Discord. How would you improve program performance?
 - Can you think of a way to parallelize this algorithm?
+    We can just parallelize the outer for loop using `#prage omp for`  
+    It should not be necessary to implement a critical region / atomics even if all threads work  
+    on the same array, because they should not write / read from the same memory location.
+
+1 Thread calculation took: 24.064277 s  
+2 Thread calculation took: 12.063832 s  
+3 Thread calculation took: 15.018605 s  
+4 Thread calculation took: 10.038079 s  
+5 Thread calculation took:  9.961386 s  
+6 Thread calculation took:  7.552146 s  
+7 Thread calculation took:  7.295750 s  
+8 Thread calculation took:  6.088290 s  
+
+1 Thread calculation took: 24.048775 s  
+2 Thread calculation took: 12.076842 s  
+3 Thread calculation took: 15.013761 s  
+4 Thread calculation took: 10.028723 s  
+5 Thread calculation took:  9.970067 s  
+6 Thread calculation took:  7.535346 s  
+7 Thread calculation took:  7.308899 s  
+8 Thread calculation took:  6.132730 s  
+
+1 Thread calculation took: 24.042616 s  
+2 Thread calculation took: 12.086426 s  
+3 Thread calculation took: 15.023305 s  
+4 Thread calculation took: 10.038114 s  
+5 Thread calculation took:  9.965095 s  
+6 Thread calculation took:  7.527066 s  
+7 Thread calculation took:  7.301833 s  
+8 Thread calculation took:  6.097498 s  
 
 ## Exercise 2 (1 Point)
 
@@ -78,6 +108,7 @@ There are several methods to approximate Pi numerically. In this exercise, you a
 - Implement a serial version of Monte Carlo Pi approximation.
 - Implement a parallel version of Monte Carlo Pi approximation using POSIX Threads Library (`pthread`).
 - Benchmark the sequential version and the parallel version for 1 to 8 threads on LCC2 using n = 500,000,000. Document your results and visualize them in appropriate figures. How could you improve program performance?
+- with and without -O3 serial algorithm average of 5 trials 14.9s
 - Add your measured execution times for 1 and 8 threads on LCC2 to the comparison spreadsheet linked on Discord.
 
 ## General Notes

@@ -26,13 +26,7 @@ make
 
 for i in $(seq 1 8); do
   export OMP_NUM_THREADS=$i
-  echo "$i Threads slow"
-  ./slow
-  echo "$i Threads medium"
-  ./medium
-  echo "$i Threads fast"
-  ./fast
+  ./mandelbrot
 done
 
 export OMP_NUM_THREADS=1
-make clean
