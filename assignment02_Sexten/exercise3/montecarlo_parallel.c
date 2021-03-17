@@ -8,7 +8,6 @@
 #include <unistd.h>
 
 #define ITERATIONS 500000000
-#define NUM_THREADS 8
 
 size_t iterations = 0;
 
@@ -18,10 +17,11 @@ _Atomic size_t count = 0;
 void* monteCarloP() {
 	double x, y, z;
 	size_t localCount = 0;
-
+	unsigned int seed = time(NULL);
+	
 	for(size_t i = 0; i < iterations; i++) {
-		x = (double)rand() / RAND_MAX;
-		y = (double)rand() / RAND_MAX;
+		x = (double)rand_r(&seed) / RAND_MAX;
+		y = (double)rand_r(&seed) / RAND_MAX;
 		z = x * x + y * y;
 		if(z <= 1) localCount++;
 	}

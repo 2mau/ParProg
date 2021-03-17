@@ -25,8 +25,7 @@ make clean
 make
 
 for i in $(seq 1 8); do
+  #./mandelbrot
   export OMP_NUM_THREADS=$i
-  ./mandelbrot
+  ./mandelbrot_parallel
 done
-
-export OMP_NUM_THREADS=1

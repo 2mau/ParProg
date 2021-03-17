@@ -1,10 +1,10 @@
 CFLAGS = -std=gnu11 -Wall -Wextra -lm
 
 .PHONY: all
-all: mandelbrot
+all: hadamard
 
 .PHONY: clean
 clean:
-	$(RM) mandelbrot mandelbrot.png
+	$(RM) hadamard
 
-mandelbrot: mandelbrot.c
+hadamard: hadamard.c

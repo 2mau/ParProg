@@ -22,10 +22,13 @@
 module load gcc/8.2.0
 
 make clean
+make
 
-gcc -std=gnu11 -Wall -Werror -Wextra -O3 -pthread montecarlo_serial.c -o montecarlo_serial
-./montecarlo_serial
-for i in $(seq 1 8); do
-    gcc -std=gnu11 -Wall -Werror -Wextra -D NUM_THREADS=$i -O3 -pthread montecarlo_parallel.c -o montecarlo_parallel
-    ./montecarlo_parallel
-done
+export OMP_NUM_THREADS=$i
+echo snippet 1
+valgrind --tool=cachegrind ./hadamard
+perf stat ./hadamard
+echo snippet 2
+valgrind --tool=cachegrind ./hadamard 1
+perf stat ./hadamard 1
+export OMP_NUM_THREADS=1
