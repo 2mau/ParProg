@@ -17,11 +17,9 @@ _Atomic size_t count = 0;
 
 void* monteCarloP() {
 	double x, y, z;
-	int localCount = 0;
-	pthread_t threadid = pthread_self();
+	size_t localCount = 0;
 
 	for(size_t i = 0; i < iterations; i++) {
-		printf("Thread: %ld, i: %lu\n",threadid, i);
 		x = (double)rand() / RAND_MAX;
 		y = (double)rand() / RAND_MAX;
 		z = x * x + y * y;
@@ -40,7 +38,7 @@ int main(void) {
 	gettimeofday(&start, NULL);
 
 	for(int i = 0; i < NUM_THREADS; i++)
-		if(pthread_create(&threadIds[i], NULL, monteCarloP, &iterations)){
+		if(pthread_create(&threadIds[i], NULL, monteCarloP, NULL)){
 			printf("Error");
 		};
 

@@ -9,10 +9,10 @@
 
 void monteCarlo() {
 	double x, y;
-	int count = 0;
+	size_t count = 0;
 	double z, pi;
 
-	for(int i = 0; i < ITERATIONS; i++) {
+	for(size_t i = 0; i < ITERATIONS; i++) {
 
 		x = (double)rand() / RAND_MAX;
 		y = (double)rand() / RAND_MAX;

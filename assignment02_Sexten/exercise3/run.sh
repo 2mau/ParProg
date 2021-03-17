@@ -24,6 +24,5 @@ module load gcc/8.2.0
 make clean
 make
 
-#./montecarlo_serial
+./montecarlo_serial
 ./montecarlo_parallel
-
