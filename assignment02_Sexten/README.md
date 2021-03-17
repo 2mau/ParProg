@@ -1,4 +1,4 @@
-# Assignment 2 for March 23rd, 2021
+# Solutions for Assignment 2
 
 The goal of this assignment is to get a first grasp of performance-oriented programming. Furthermore, you will be using the LCC2 cluster, `cachegrind`, and `perf` for the first time in this lab.
 
@@ -42,33 +42,11 @@ function calc_mandelbrot(image):
     It should not be necessary to implement a critical region / atomics even if all threads work  
     on the same array, because they should not write / read from the same memory location.
 
-1 Thread calculation took: 24.064277 s  
-2 Thread calculation took: 12.063832 s  
-3 Thread calculation took: 15.018605 s  
-4 Thread calculation took: 10.038079 s  
-5 Thread calculation took:  9.961386 s  
-6 Thread calculation took:  7.552146 s  
-7 Thread calculation took:  7.295750 s  
-8 Thread calculation took:  6.088290 s  
 
-1 Thread calculation took: 24.048775 s  
-2 Thread calculation took: 12.076842 s  
-3 Thread calculation took: 15.013761 s  
-4 Thread calculation took: 10.028723 s  
-5 Thread calculation took:  9.970067 s  
-6 Thread calculation took:  7.535346 s  
-7 Thread calculation took:  7.308899 s  
-8 Thread calculation took:  6.132730 s  
-
-1 Thread calculation took: 24.042616 s  
-2 Thread calculation took: 12.086426 s  
-3 Thread calculation took: 15.023305 s  
-4 Thread calculation took: 10.038114 s  
-5 Thread calculation took:  9.965095 s  
-6 Thread calculation took:  7.527066 s  
-7 Thread calculation took:  7.301833 s  
-8 Thread calculation took:  6.097498 s  
-
+### Solution
+  
+The serial algorithm took a mean of 23.24 seconds. A method to improve it, would be to parallelize it. We can parallelize the for loop easily because every pixel gets calculated independently from the other ones.						
+<img src="./exercise1/Runtimes.png">
 ## Exercise 2 (1 Point)
 
 ### Description
@@ -97,6 +75,21 @@ for (size_t j = 0; j < n; ++j) {
 - Use the two snippets to implement two versions of the Hadamard product.
 - Log into the LCC2 cluster and analyze the cache behavior of the implementations using `cachegrind` and `perf`. Can you validate your theoretical findings? Compare the results of both tools.
 
+### Solution
+"Snippet 1:
+We are iterating over the matrix in the way it is located in the memory. So the algorithm caches the first value of the matrix + (s/4) - 1 values since a cache line is as bis as s/sizeof(int32_t) = s/4.
+So we can we have cache miss for every s'th byte. So with one matrix the following forumla holds:
+<img src="https://latex.codecogs.com/gif.latex?cacheMisses = \frac{matrixSize}{s} = \frac{4*n^2}{s}"/> 
+Since the snippet loops over two matrices we have simply twice as much cache misses
+
+
+
+Snippet 2:
+Since n>>s/4 and we are traversing first over the columns we will never have a cache hit, assuming the cache isnt big enough to store more than n cachelines. So the forumla is:
+<img src="https://latex.codecogs.com/gif.latex?cacheMisses = n^2"/>
+
+Cachegrind simulates cache so it is more a theoretical simulation than a practical measurement, and it says with a N*N Matrix that we have 126488 misses in the first snippet, and 2000492 in the second one. So it looks like that the first snippet is better. This gets proved by perf, perf measures the cache-misses so its more accurate and there we have 2161 respectively 59075 misses. It looks like some optimation is going on in the background since the real numbers are lower than the theoretical ones. It is hard to check if the forumlas are valid, because we dont know the cache-line size. The cachegrind result for the second snippet is almost the same as the forumula.
+
 ## Exercise 3 (1 Point)
 
 ### Description
@@ -116,3 +109,9 @@ There are several methods to approximate Pi numerically. In this exercise, you a
 All the material required by the tasks above (e.g., code, figures, text, etc...) must be part of the solution that is handed in. Your experiments should be reproducible and comparable to your measurements using the solution materials that you hand in.
 
 **Every** member of your group must be able to explain the given problem, your solution, and possible findings. You may also need to answer detailed questions about any of these aspects.
+
+### Solution
+
+The sequential version has an average execution time of 14,46 seconds while the parallel version using pthread has the lowest runtime with 8 threads of 1,03s. So parallelizing has quite a lot impact on the approximation of pi using the Monte Carlo method.
+
+<img src="./exercise3/Runtimes.png">
