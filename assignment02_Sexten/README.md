@@ -79,14 +79,14 @@ for (size_t j = 0; j < n; ++j) {
 "Snippet 1:
 We are iterating over the matrix in the way it is located in the memory. So the algorithm caches the first value of the matrix + (s/4) - 1 values since a cache line is as bis as s/sizeof(int32_t) = s/4.
 So we can we have cache miss for every s'th byte. So with one matrix the following forumla holds:
-<img src="https://latex.codecogs.com/gif.latex?cacheMisses = \frac{matrixSize}{s} = \frac{4*n^2}{s}"/> 
+<img src="https://render.githubusercontent.com/render/math?math=cacheMisses=\frac{matrixSize}{s} = \frac{4*n^2}{s}"/> 
 Since the snippet loops over two matrices we have simply twice as much cache misses
 
 
 
 Snippet 2:
 Since n>>s/4 and we are traversing first over the columns we will never have a cache hit, assuming the cache isnt big enough to store more than n cachelines. So the forumla is:
-<img src="https://latex.codecogs.com/gif.latex?cacheMisses = n^2"/>
+<img src="https://render.githubusercontent.com/render/math?math=cacheMisses=n^2"/>
 
 Cachegrind simulates cache so it is more a theoretical simulation than a practical measurement, and it says with a N*N Matrix that we have 126488 misses in the first snippet, and 2000492 in the second one. So it looks like that the first snippet is better. This gets proved by perf, perf measures the cache-misses so its more accurate and there we have 2161 respectively 59075 misses. It looks like some optimation is going on in the background since the real numbers are lower than the theoretical ones. It is hard to check if the forumlas are valid, because we dont know the cache-line size. The cachegrind result for the second snippet is almost the same as the forumula.
 
