@@ -1,4 +1,4 @@
-CFLAGS = -std=gnu11 -Wall -Werror -Wextra -O3 -pthread -lpthread -g -ldl -rdynamic -lrt
+CFLAGS = -std=gnu11 -Wall -Werror -Wextra -O3 -pthread
 
 .PHONY: all
 all: montecarlo_serial montecarlo_parallel
