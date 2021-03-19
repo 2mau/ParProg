@@ -1,4 +1,6 @@
 #include <math.h>
+#include <pthread.h>
+#include <stdatomic.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -9,17 +11,18 @@
 
 void monteCarlo() {
 	double x, y;
-	size_t count = 0;
 	double z, pi;
+	size_t count = 0;
+	unsigned int seed = time(NULL);
 
 	for(size_t i = 0; i < ITERATIONS; i++) {
-
-		x = (double)rand() / RAND_MAX;
-		y = (double)rand() / RAND_MAX;
+		x = (double)rand_r(&seed) / RAND_MAX;
+		y = (double)rand_r(&seed) / RAND_MAX;
 		z = x * x + y * y;
 		if(z <= 1) count++;
 	}
 	pi = (double)count / ITERATIONS * 4;
+
 	printf("Amount of trials= %d , pi is %g \n", ITERATIONS, pi);
 }
 

@@ -24,11 +24,11 @@ module load gcc/8.2.0
 make clean
 make
 
-export OMP_NUM_THREADS=$i
 echo snippet 1
 valgrind --tool=cachegrind ./hadamard
-perf stat ./hadamard
+perf stat -e cache-misses ./hadamard
+
+
 echo snippet 2
 valgrind --tool=cachegrind ./hadamard 1
-perf stat ./hadamard 1
-export OMP_NUM_THREADS=1
+perf stat -e cache-misses ./hadamard 1

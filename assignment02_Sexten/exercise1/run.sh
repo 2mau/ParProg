@@ -24,8 +24,8 @@ module load gcc/8.2.0
 make clean
 make
 
+./mandelbrot
 for i in $(seq 1 8); do
-  #./mandelbrot
   export OMP_NUM_THREADS=$i
   ./mandelbrot_parallel
 done

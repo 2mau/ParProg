@@ -38,14 +38,14 @@ function calc_mandelbrot(image):
 - Check out the generated image `mandelbrot.png` to see if you implemented the algorithm correctly. 
 - Benchmark your program on the LCC2 cluster, document your results and add them to the comparison spreadsheet linked on Discord. How would you improve program performance?
 - Can you think of a way to parallelize this algorithm?
-    We can just parallelize the outer for loop using `#prage omp for`  
+    We can just parallelize the outer for loop using `#pragma omp for`  
     It should not be necessary to implement a critical region / atomics even if all threads work  
     on the same array, because they should not write / read from the same memory location.
 
 
 ### Solution
   
-The serial algorithm took a mean of 23.24 seconds. A method to improve it, would be to parallelize it. We can parallelize the for loop easily because every pixel gets calculated independently from the other ones.						
+The serial algorithm took a mean of 23.24 seconds. A method to improve it, would be to parallelize it. We can parallelize the for loop easily because every pixel gets calculated independently from the other ones.  
 <img src="./exercise1/Runtimes.png">
 ## Exercise 2 (1 Point)
 
@@ -76,10 +76,18 @@ for (size_t j = 0; j < n; ++j) {
 - Log into the LCC2 cluster and analyze the cache behavior of the implementations using `cachegrind` and `perf`. Can you validate your theoretical findings? Compare the results of both tools.
 
 ### Solution
-"Snippet 1:
-We are iterating over the matrix in the way it is located in the memory. So the algorithm caches the first value of the matrix + (s/4) - 1 values since a cache line is as bis as s/sizeof(int32_t) = s/4.
-So we can we have cache miss for every s'th byte. So with one matrix the following forumla holds:
-<img src="https://render.githubusercontent.com/render/math?math=cacheMisses=\frac{matrixSize}{s} = \frac{4*n^2}{s}"/> 
+n := matrix-hight / width  
+s := cache line size in byte (8 way associative)   
+(s/4) = amount of cached elements per cache line  
+
+
+
+Snippet 1:  
+We are iterating over the matrix in the way it is located in the memory.  
+So the algorithm caches the first value of the matrix + (s/4) - 1 values since a cache line is as big as s/sizeof(int32_t) = s/4,  
+meaning we get a cache miss on every s`th byte.
+With one matrix the following forumla holds:
+<img src="https://render.githubusercontent.com/render/math?math=cacheMisses=\frac{matrixSize}{s/4} = \frac{4*n^2}{s}"/> 
 Since the snippet loops over two matrices we have simply twice as much cache misses
 
 
@@ -112,6 +120,10 @@ All the material required by the tasks above (e.g., code, figures, text, etc...)
 
 ### Solution
 
-The sequential version has an average execution time of 14,46 seconds while the parallel version using pthread has the lowest runtime with 8 threads of 1,03s. So parallelizing has quite a lot impact on the approximation of pi using the Monte Carlo method.
+The sequential version has an average execution time of 14,46 seconds while the parallel version using pthread has the lowest runtime with 8 threads of 1,03s. So parallelizing has quite a lot impact on the approximation of pi using the Monte Carlo method.  
+
+The optimized version is 1.7 times as fast as the unoptimized version without -O3  
+The time of the sequential algorithm can be reduced further to the same time as the parallel version with one thread,
+by using `rand_r` instead of `rand`.
 
 <img src="./exercise3/Runtimes.png">

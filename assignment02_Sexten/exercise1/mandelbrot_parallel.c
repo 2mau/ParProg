@@ -1,8 +1,8 @@
+#include <omp.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/time.h>
-#include <omp.h>
 
 // Include that allows to print result as an image
 #define STB_IMAGE_WRITE_IMPLEMENTATION
@@ -19,9 +19,6 @@ void calc_mandelbrot(uint8_t image[Y][X]) {
 
 #pragma omp parallel
 	{
-		// printf("I am thread %d out of %d threads.\n", omp_get_thread_num(),
-		// omp_get_num_threads());
-
 #pragma omp for
 		for(int Py = 0; Py < Y; Py++) {
 			double cy = ((float)Py / Y) * 2 - 1;
