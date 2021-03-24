@@ -18,6 +18,17 @@ This exercise consists of implementing the Monte Carlo Pi approximation of assig
 - The tool `/usr/bin/time` can be used to get useful information on the properties of a program's execution, e.g. its execution time or the maximum amount of main memory used. Measure the execution time of your OpenMP implementation using `/usr/bin/time -v <program_name>`. Take a look at the output, specifically "user time" and "elapsed (wall clock) time". How do they differ? Does either of them match the time measurement function of OpenMP?
 - Add the wall clock time measurements for 8 threads on LCC2 to the comparison spreadsheet linked on Discord.
 
+
+### Solution
+
+![diagram](./exercise1/diagram.jpg)
+
+In comparison to OpenMP, the pthread approach is slightly faster. In addition to that only with 1 Thread we could observe that critical was the slowest approach.
+
+![diagram](./exercise1/time.jpg)
+
+When measuring time with /usr/bin/time the wall clock time is almost the same as the measurement with wallclock in the code itself. User time is a lot bigger because it is the sum of the time all cores are spending in user space.
+
 ## Exercise 2 (1 Point)
 
 ### Description
