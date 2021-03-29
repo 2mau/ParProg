@@ -1,0 +1,17 @@
+  Loading gcc/8.2.0
+rm -f ex2 ex2_opt reduction
+gcc -std=gnu11 -Wall -Wextra -lm -fopenmp -g -O3    ex2.c   -o ex2
+gcc -std=gnu11 -Wall -Wextra -lm -fopenmp -g -O3    ex2_opt.c   -o ex2_opt
+gcc -std=gnu11 -Wall -Wextra -lm -fopenmp -g -O3    reduction.c   -o reduction
+res: 35309705, time: 20.71 seconds
+res opt: 18446605672281749740, time: 20.41 seconds, threads: 1
+
+res: 2138744294, time: 21.44 seconds
+res opt: 18446605672281749740, time: 10.27 seconds, threads: 2
+
+res: 3506538772, time: 22.06 seconds
+res opt: 18446605672281749740, time: 5.41 seconds, threads: 4
+
+res: 727731401, time: 23.03 seconds
+res opt: 18446605672281749740, time: 2.78 seconds, threads: 8
+
