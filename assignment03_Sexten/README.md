@@ -105,6 +105,7 @@ In this exercise, you are asked to implement merge sort for arrays of type `int3
 - Create a set of tests to ensure that the algorithm sorts properly. You need not to use a unit testing framework.
 - Implement a parallel, iterative version of merge sort using OpenMP.
 - Enter the wall clock time of the sequential version, and the parallel version for 1 and 8 threads for n=100,000,000 on LCC2 to the comparison spreadsheet linked on Discord.
+![](./exercise3/TableMergesort.png)
 
 ## General Notes
 
