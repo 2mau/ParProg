@@ -54,7 +54,8 @@ void merge(int32_t arr[], int32_t l, int32_t m, int32_t r)
     int32_t n2 =  r - m;
  
     /* create temp arrays */
-    int32_t L[n1], R[n2];
+    int32_t* L = (int32_t *) malloc(n1 * sizeof(int32_t));
+    int32_t* R = (int32_t *) malloc(n2 * sizeof(int32_t));
  
     /* Copy data to temp arrays L[] and R[] */
     for (i = 0; i < n1; i++)
@@ -96,6 +97,8 @@ void merge(int32_t arr[], int32_t l, int32_t m, int32_t r)
         j++;
         k++;
     }
+    free(L);
+    free(R);
 }
 
 int32_t* initWithRandom(int32_t size){
@@ -138,8 +141,11 @@ int main(int argc, char** argv){
     }
     size = atoi(argv[1]);
     int32_t* array = initWithRandom(size);
+    double start_time = omp_get_wtime();
     mergeSort(array,size);
-    printArray(array,size);
+    double end_time = omp_get_wtime();
+	printf("Time: %2.2f seconds\n", end_time - start_time);
+   // printArray(array,size);
     int r = isArraySorted(array,size);
     if(r == 1){
         printf("Succesfully sorted\n");
