@@ -18,4 +18,9 @@
 # Parallel environment for using OpenMP, allocates 8 cores on a single node
 #$ -pe openmp 8
 
-/usr/bin/time -v ./montecarlo_atomic
+module load gcc/8.2.0
+
+for i in {1..1000}; do
+ echo $i
+ ./flush_o
+done
