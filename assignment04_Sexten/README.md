@@ -24,8 +24,31 @@ This exercise deals with the OpenMP flush directive and why it can be necessary.
 ### Tasks
 
 - Examine [flush.c](flush.c) and explain what the code does from an abstract, high-level perspective. What should happen here?
+    - Thread 1 writes a Variable and then tells Thread 2 to print it out.
 - Compile this code with with gcc 8.2.0 and optimization level `-O3`. Run it in an interactive job (e.g. using `qrsh -pe openmp 8`) in a loop many times (e.g. write a loop in bash that executes it 1000 times). Run this loop repeatedly. What can you observe? **Note: Please quit your interactive job once you are done!**
+    - At some point of Time, the execution of run.sh gets stuck. Probably because the second thread reads "flag" from its cache or the first thread only writes to its cache.
 - Does this code require any `#pragma omp flush` directives? If it does, where are they necessary? If it does not, why not?
+    - Yes this code requires some flush operations, in order to insure that data is written bevore flag and flag gets read from the main memory.
+    ```cpp
+    if (omp_get_thread_num()==0) {
+         /* Write to the data buffer that will be read by thread */
+         data = 42;
+         #pragma omp flush(data)
+         /* Set flag to release thread 1 */
+         flag = 1;
+         #pragma omp flush(flag)
+      }
+      else if (omp_get_thread_num()==1) {
+         /* Loop until we see the update to the flag */
+         #pragma omp flush(flag)
+         while (flag < 1) {
+            #pragma omp flush(flag)
+         }
+         /* print flag and data */
+         #pragma omp flush(data)
+         printf("flag=%d data=%d\n", flag, data);
+      }
+    ```
 
 ## Exercise 3 (1 Point)
 
