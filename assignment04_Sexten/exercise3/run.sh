@@ -30,11 +30,12 @@ module load gcc/8.2.0
 make clean
 make
 
-for i in 1 2 4 8; do
+for i in 8; do
   export OMP_NUM_THREADS=$i
-  ./ex2 1500
-  ./ex2_opt 1500
+  ./ex3_tasks
+  ./ex3_tasks
+  ./ex3_tasks
 done
-
 OMP_NUM_THREADS=1
+
 make clean
