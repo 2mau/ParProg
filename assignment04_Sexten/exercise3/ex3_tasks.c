@@ -64,7 +64,7 @@ void mergesort_serial(int32_t a[], int32_t size, int32_t temp[]) {
 }
 
 void mergesort_parallel_omp(int32_t a[], int32_t size, int32_t temp[]) {
-	if(size < 50000) {
+	if(size < 75000) {
 		mergesort_serial(a, size, temp);
 		return;
 	}

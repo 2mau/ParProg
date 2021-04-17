@@ -61,7 +61,45 @@ In this exercise, you will improve your implementation of merge sort.
 - Write a recursive implementation of your merge sort algorithm of the last assignment.
 - Provide both a sequential and a parallel version of the recursive implementation.
 - Explain the OpenMP constructs you used for parallelization.
+```c
+// create a parallel region
+#pragma omp parallel
+	{
+// execute this reguion with the master thread
+#pragma omp master
+		mergesort_parallel_omp(a, SIZE, temp);
+	}
+```
+
+```c
+// Task: dynamically created independent piece of work executed asynchronously
+void mergesort_parallel_omp(int32_t a[], int32_t size, int32_t temp[]) {
+	if(size < 75000) {
+		mergesort_serial(a, size, temp);
+		return;
+	}
+
+	int32_t sizeH = size / 2;
+
+// use taskgroup for deep sync of child tasks
+#pragma omp taskgroup
+	{
+// define tasks
+#pragma omp task
+		mergesort_parallel_omp(a, sizeH, temp);
+#pragma omp task
+		mergesort_parallel_omp(a + sizeH, size - sizeH, temp + sizeH);
+	}
+
+	merge(a, size, temp);
+}
+```
+
 - How does the performance of the recursive version compare to the iterative version, both sequential and parallel?
+
+| Recursive        | Iterative | 
+| ------------- |:-------------:| 
+|![](./exercise3/MergeSort-Rec.png) |![](./exercise3/MergeSort-Iter.png) | 
 
 ## General Notes
 

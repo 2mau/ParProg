@@ -30,10 +30,25 @@ module load gcc/8.2.0
 make clean
 make
 
-for i in 1 8; do
-  export OMP_NUM_THREADS=$i
-  ./ex3_tasks
+for place in threads cores sockets
+do
+    for n in 1 4
+    do
+        for proc_bind in 'true' 'false' master close spread
+        do
+            for i in $(seq 1 5)
+            do
+                qsub \
+                    -N a4_e1_${n}-${place}_${proc_bind}_${i} \
+                    # -o stuff/lcc2_logs/${n}-${place}_${proc_bind}_${i}.log \
+                    -pe openmp 4 \
+                    -v OMP_NUM_THREADS=$n \
+                    -v OMP_PLACES=$place \
+                    -v OMP_PROC_BIND=$proc_bind \
+                    lcc2_base_job.sh
+            done
+        done
+    done
 done
-OMP_NUM_THREADS=1
 
 make clean
