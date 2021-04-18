@@ -15,6 +15,19 @@ This exercise consists of exploring the effects of OpenMP thread affinity.
 - Run your program with 4 threads. Explore the affinity features of OpenMP 4.0 to change the way threads are mapped to cores, e.g. using a single CPU only or using both CPUs. Explain the affinity settings that you chose.
 - Benchmark your program with these affinity settings. What can you observe?
 
+```c
+    #pragma omp parallel for
+	for(int i = 0; i < N; ++i) {
+		#pragma omp atomic
+		sum++;
+	}  
+```
+![](./exercise1/image.png)
+
+Run with OMP_PLACES (threads,cores,sockets), OMP_PROC_BIND (master, close, spread, true, false) and OMP_NUM_THREADS (4)  
+Run 5 times with average time.
+
+
 ## Exercise 2 (1 Point)
 
 ### Description
