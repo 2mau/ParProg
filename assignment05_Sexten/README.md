@@ -44,7 +44,7 @@ A large class of scientific applications are so-called stencil or structured gri
 
 The parallel Version of heat_stencil_2D divides the Matrix into NUM_THREADS parts, and each thread calulates its points indipendently.
 
-<img alt="heat_stencil" src="Benchmark.jpg" width="40%">
+<img alt="heat_stencil" src="./exercise2/Benchmark.jpg" width="40%">
 
 ## General Notes
 
