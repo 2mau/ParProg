@@ -18,6 +18,20 @@ A Delannoy number specifies the number of paths from the south-west corner of a 
 - What is the main bottleneck of your parallel implementation and how can it be improved without changing the underlying algorithm?
 - Enter the wall clock time of the sequential version and the parallel version for 1 and 8 threads for N=12 on LCC2 to the comparison spreadsheet linked on Discord.
 
+## Solution 
+
+What can you observe?   
+* Implementing a naive parallel version results in huge task overhead due to tasks creating new tasks in every recursive call. 
+* Paths are growing in an exponential manner.
+
+What is main bottle neck?  
+* Recursive calls creating huge task overhead 
+
+What can be improved ?  
+* Finding the point where creating new Tasks leads to performance loss. Then calling it in a sequetial manner.
+* Outsourcing the sequential calls to an own function (Compiler Optimization)  
+![](./exercise1/Table.png)
+
 ## Exercise 2 (2 Points)
 
 ### Description
