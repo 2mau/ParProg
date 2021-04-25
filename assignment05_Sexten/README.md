@@ -40,6 +40,12 @@ A large class of scientific applications are so-called stencil or structured gri
 - Enter the wall clock time of the sequential version and the parallel version for 1 and 8 threads for 500x500 on LCC2 to the comparison spreadsheet linked on Discord.
 
 
+### Solution
+
+The parallel Version of heat_stencil_2D divides the Matrix into NUM_THREADS parts, and each thread calulates its points indipendently.
+
+<img alt="heat_stencil" src="Benchmark.jpg" width="40%">
+
 ## General Notes
 
 All the material required by the tasks above (e.g., code, figures, text, etc...) must be part of the solution that is handed in. Your experiments should be reproducible and comparable to your measurements using the solution materials that you hand in.
