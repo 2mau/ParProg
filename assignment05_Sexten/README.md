@@ -30,7 +30,7 @@ What is main bottle neck?
 What can be improved ?  
 * Finding the point where creating new Tasks leads to performance loss. Then calling it in a sequetial manner.
 * Outsourcing the sequential calls to an own function (Compiler Optimization)  
-![](./exercise1/Table.png)
+![](./exercise1/NewTable.png)
 
 ## Exercise 2 (2 Points)
 
