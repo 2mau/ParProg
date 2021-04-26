@@ -15,12 +15,12 @@ int delannoy(int n,int m) {
 
     int x, y,z;
     
-        #pragma omp task shared(x)
+        #pragma omp task shared(x,y)
         {
         x = delannoy(m-1,n);
+        y = delannoy(m-1,n-1);
             }
 
-        y = delannoy(m-1,n-1);
 
 
         z = delannoy(m,n-1);
