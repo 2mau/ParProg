@@ -32,7 +32,7 @@ make
 
 for i in 1 8; do
   export OMP_NUM_THREADS=$i
-  ./heat_stencil_2D
+  ./eight_queens
 done
 OMP_NUM_THREADS=1
 

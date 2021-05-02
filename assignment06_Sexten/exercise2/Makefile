@@ -1,10 +1,10 @@
 CFLAGS = -std=gnu11 -Wall -Wextra -lm -fopenmp -g -O3
 
 .PHONY: all
-all: heat_stencil_2D
+all: eight_queens
 
 .PHONY: clean
 clean:
-	$(RM) heat_stencil
+	$(RM) eight_queens
 
-ex3: heat_stencil.c
+ex3: eight_queens.c
