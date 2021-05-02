@@ -44,6 +44,7 @@ int solve(int* arr, int row) {
 		arr[row] = column;
 		if(check(arr, row)) {
 			if(row == N - 1) {
+        		#pragma omp atomic
           			sol++;
 			} else {
 				solve(arr, row + 1);
@@ -54,6 +55,7 @@ int solve(int* arr, int row) {
 }
 
 void queens() {
+  #pragma omp parallel for
   for(int i = 0; i < N; i++){
     int *arr = malloc(sizeof(int)*N);
     for(int i = 1; i < N; i++){
