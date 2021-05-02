@@ -3,7 +3,7 @@
 #include <omp.h>
 #include <stdio.h>
 #include <stdlib.h>
-#define N 10
+#define N 12
 
 int sol = 0;
 
@@ -44,10 +44,8 @@ int solve(int* arr, int row) {
 		arr[row] = column;
 		if(check(arr, row)) {
 			if(row == N - 1) {
-        #pragma omp atomic
-          sol++;
-				printf("\n solution %d\n", sol);
-				//printsol(arr);
+        		#pragma omp atomic
+          			sol++;
 			} else {
 				solve(arr, row + 1);
 			}
@@ -57,26 +55,16 @@ int solve(int* arr, int row) {
 }
 
 void queens() {
-  #pragma omp parallel shared(sol)
-  {
-    #pragma omp single
-    {
+  #pragma omp parallel for
   for(int i = 0; i < N; i++){
     int *arr = malloc(sizeof(int)*N);
     for(int i = 1; i < N; i++){
       arr[i] = -1;
     }
-    arr[0] = i;
-    #pragma omp task
-    {
-      solve(arr, 1);
-    }
-    #pragma omp taskwait
-      free(arr);
+	arr[0] = i; 
+    solve(arr, 1);
   }
   printf("Count %d\n", sol);
-  }
-  }
 }
 
 int main() {
