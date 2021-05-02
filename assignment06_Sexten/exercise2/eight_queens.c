@@ -3,7 +3,7 @@
 #include <omp.h>
 #include <stdio.h>
 #include <stdlib.h>
-#define N 8
+#define N 12
 
 int sol = 0;
 

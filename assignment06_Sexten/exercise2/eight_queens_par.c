@@ -3,7 +3,7 @@
 #include <omp.h>
 #include <stdio.h>
 #include <stdlib.h>
-#define N 8
+#define N 12
 
 int sol = 0;
 
@@ -63,6 +63,7 @@ void queens() {
     }
 	arr[0] = i; 
     solve(arr, 1);
+	free(arr);
   }
   printf("Count %d\n", sol);
 }

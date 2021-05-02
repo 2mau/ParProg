@@ -19,6 +19,7 @@ make
 for i in {1..8}; do
   export OMP_NUM_THREADS=$i
   echo Threads $i
+  echo Test
   ./eight_queens_par
 done
 OMP_NUM_THREADS=1

@@ -34,6 +34,10 @@ The [N-Queens problem](https://en.wikipedia.org/wiki/Eight_queens_puzzle) is a p
 - Benchmark the sequential and the parallel version with 1, 2, 4, and 8 threads on LCC2 using the sizes 8, 10, and 12. Has your effort paid off?
 - Enter the wall clock time of the sequential version and the parallel version for 1 and 8 threads for N=12 on LCC2 to the comparison spreadsheet linked on Discord.
 
+<img src="./exercise2/Benchmark.jpg">
+
+## Solution
+Thte effort only pays off in the N=12 case, in all other cases the execution time either increases or approximately stays the same. The parallel version only parallelizses the first step, where the queen gets placed in one of the N columns, after that the rest of the evaluation is done sequentially. 
 
 ## General Notes
 
