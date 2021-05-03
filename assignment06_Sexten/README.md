@@ -22,6 +22,14 @@ For example, the exclusive prefix sum of `[2, 1, 5, 6, 3]` is `[0, 2, 3, 8, 14]`
 - Benchmark the sequential implementation against the parallel version with 8 threads on LCC2. Has your effort paid off?
 - Enter the wall clock time of the sequential version and the parallel version for 1 and 8 threads for N=1e9 on LCC2 to the comparison spreadsheet linked on Discord.
 
+## Solution
+At first try the parallel implementation was extremly slow. That was due to to a bad work effiency.  
+With an algorithm change to divide into blocks the sum can be calculated in three steps.  
+![](./exercise1/Table.png)  
+The execution time of the sequential algorithm was about 2.58 (avg. in 5 runs)  
+That is a speed up of approximatly 1.3651 (Tseq/Tpar)  
+That makes an efficiency of about 0.1706 with 8 threads, 0.27302 with 5 Threads and 0.4432 with 3 Threads  
+
 ## Exercise 2 (2 Points)
 
 ### Description
