@@ -31,7 +31,7 @@ int main(int argc, char* argv[]) {
     int32_t* result = prefixSum(arr,N,b); 
     double endTime = omp_get_wtime();
     printf("time: %2.4f seconds\n", endTime-startTime);
-    printf("%d\n",result[N-2]);
+    printf("%d\n",result[N-1]);
 
     free(arr);
     free(b);
