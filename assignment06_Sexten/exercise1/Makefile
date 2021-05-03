@@ -9,4 +9,4 @@ clean:
 
 exclPrefixSumSeq: exclPrefixSumSeq.c
 
-exclPrefixSumPar: exclPrefixSumPar.c -lm
+exclPrefixSumPar: exclPrefixSumPar.c

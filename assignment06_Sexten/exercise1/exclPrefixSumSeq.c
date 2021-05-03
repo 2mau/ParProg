@@ -12,8 +12,8 @@ int32_t * prefixSum(int32_t* arr, int32_t n, int32_t* b){
 
 int32_t* init(int32_t size){
     
-    int32_t* array = (int32_t *) malloc(size * sizeof(int32_t));
-    for(int32_t i = 0 ; i < size; i++){
+    int32_t* array = (int32_t *) malloc((size+1) * sizeof(int32_t));
+    for(int32_t i = 0 ; i <= size; i++){
         array[i] = 1;
     }
     return array;
