@@ -5,7 +5,7 @@
 
 void calcSimd(float *a, float * b, float *c, int size, long repetitions) {
 	for(int run = 0; run < repetitions; ++run) {
-        #pragma omp simd
+        #pragma omp simd aligned(a,b,c : 16)
 		for(int i = 0; i < size; ++i) {
 			a[i] += b[i] * c[i];
 		}

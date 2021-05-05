@@ -1,3 +1,12 @@
-common.o
-program1
-program2
+# Ignore all
+*
+
+# Unignore all with extensions
+!*.*
+
+# Unignore all dirs
+!*/
+
+!Makefile
+
+### Above combination will ignore all files without extension ###
