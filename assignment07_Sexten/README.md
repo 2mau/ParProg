@@ -63,9 +63,13 @@ Instead of relying on OpenMP for vectorization, we will do so using compiler-spe
 ### Tasks
 
 - Vectorize your code for `float` types using the gcc-specific intrinsic functions `_mm_load_ps`, `_mm_add_ps`, `_mm_mul_ps`, and `_mm_store_ps`. Do not forget to include the respective header `xmmintrin.h`.
-- Compile your manually vectorized code with `-O1` but without any compiler flags for auto-vectorization and compare its performance for your set of problem sizes to your previous code versions. What can you observe? Is the result still correct?
+- Compile your manually vectorized code with `-O1` but without any compiler flags for auto-vectorization and compare its performance for your set of problem sizes to your previous code versions. What can you observe? Is the result still correct?  
+The result is still correct. We can observe that now we approximately a quarter of the time from the sequential algorithm which intuitivly makes sense.
+
 - Verify any findings using `perf` as described in Exercise 1.
-- How does the solution for this Exercise compare to Exercise 2 and Exercise 1? Are there any advantages or disadvantages?
+- How does the solution for this Exercise compare to Exercise 2 and Exercise 1? Are there any advantages or disadvantages?  
+Well intrinsics allow fine grained control, which is just partially possible or not possible with the other two approaches. On the other hand it is more difficult to use.  
+
 - Enter the wall clock time of the compiler-specific intrinsics version with size 2048 and 1e6 repetitions to the spreadsheet linked on Discord.
 
 ## General Notes
