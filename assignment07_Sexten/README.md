@@ -43,12 +43,14 @@ for(int run = 0; run < repetitions; ++run) {
 
 Instead of relying on the compiler to vectorize the code for us, we will do so manually in this exericse, using OpenMP.
 
-### Tasks
+### Solution
 
 - Vectorize your sequential program using OpenMP. Do not use any OpenMP thread-based parallelism.
 - Compile your OpenMP-vectorized code with `-O1` but without any compiler flags for auto-vectorization and compare its performance for the problem size 2048 to both the sequential version and the compiler-vectorized version. What can you observe? Is the result still correct?
+  While simd without the aligned clause needs 1.724 seconds, with the aligned clause i could reduce the result to 0.627 seconds.
 - Verify any findings using `perf` as described in Exercise 1.
 - Repeat the sequential and OpenMP executions when changing the data type from `float` to `double`. What can you observe?
+With double the execution time increases to 2.469 seconds. Probably because the processors don't have vector registers that allow more than one double operation at a time.
 - How does the solution for this Exercise compare to Exercise 1? Are there any advantages or disadvantages?
 - Enter the wall clock time of the OpenMP-vectorized version with size 2048, 1e6 repetitions and data type `float` to the spreadsheet linked on Discord.
 
