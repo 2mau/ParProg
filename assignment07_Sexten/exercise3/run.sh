@@ -16,6 +16,9 @@
 module load gcc/8.2.0
 make clean
 make
-./simd
-./simd_db
+./intrinsics
+./intrinsics
+./intrinsics
+./intrinsics
+./intrinsics
 make clean
