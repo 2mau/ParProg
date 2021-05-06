@@ -69,6 +69,7 @@ The result is still correct. We can observe that now we approximately a quarter 
 - Verify any findings using `perf` as described in Exercise 1.
 - How does the solution for this Exercise compare to Exercise 2 and Exercise 1? Are there any advantages or disadvantages?  
 Well intrinsics allow fine grained control, which is just partially possible or not possible with the other two approaches. On the other hand it is more difficult to use.  
+![plot](exercise3/meta-chart.png)
 
 - Enter the wall clock time of the compiler-specific intrinsics version with size 2048 and 1e6 repetitions to the spreadsheet linked on Discord.
 
