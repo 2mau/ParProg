@@ -66,7 +66,16 @@ Instead of relying on OpenMP for vectorization, we will do so using compiler-spe
 - Compile your manually vectorized code with `-O1` but without any compiler flags for auto-vectorization and compare its performance for your set of problem sizes to your previous code versions. What can you observe? Is the result still correct?  
 The result is still correct. We can observe that now we approximately a quarter of the time from the sequential algorithm which intuitivly makes sense.
 
-- Verify any findings using `perf` as described in Exercise 1.
+- Verify any findings using `perf` as described in Exercise 1. 
+ | Name                            | Event Code | Unit Mask | Value Par |  Value Seq |
+ | ------------------------------- | :--------: | :-------: | :-------: |  :-------: |
+ | SIMD_INST_RETIRED.PACKED_SINGLE |     C7     |    01     |    01     |     01     |
+ | SIMD_INST_RETIRED.SCALAR_SINGLE |     C7     |    02     |    02     |     02     |
+ | SIMD_INST_RETIRED.PACKED_DOUBLE |     C7     |    04     |    04     |     04     |
+ | SIMD_INST_RETIRED.SCALAR_DOUBLE |     C7     |    08     |    08     |     08     |
+ | SIMD_INST_RETIRED.VECTOR        |     C7     |    10     |    10     |     10     |
+ | SIMD_INST_RETIRED.ANY           |     C7     |    1F     |    1F     |     1F     |
+  sudo perf stat -e r01C7 ./intrinsics 0 && sudo perf stat -e r01C7 ./intrinsics
 - How does the solution for this Exercise compare to Exercise 2 and Exercise 1? Are there any advantages or disadvantages?  
 Well intrinsics allow fine grained control, which is just partially possible or not possible with the other two approaches. On the other hand it is more difficult to use.  
 ![plot](exercise3/meta-chart.png)

@@ -33,38 +33,25 @@ float *init(int size, int value){
     return array;
 }
 
-int compare(float *a, float *b, int size){
-    for(int i = 0; i < size; i++){
-        if (fabs(a[i] - b[i]) > 0.001){
-            return 0;
-        }
-    }
-    return 1;
-}
-
-int main(void){
+int main(int argc, char *argv[]){
     long repetitions = 1e6;
     int vectorSize = 2048;
     float *a = init(vectorSize, 0);
-    float *a2 = init(vectorSize, 0);
     float *b = init(vectorSize, 1);
     float *c = init(vectorSize, -1);
-    double startTime;
-	double endTime;
 
-    startTime = omp_get_wtime();
-    calcSimd(a, b, c, vectorSize, repetitions);
-    endTime = omp_get_wtime();
-	printf("intrinsics time: %f\n", endTime - startTime);
+    if (argc == 1) {
+        printf("simd");
+        calcSimd(a, b, c, vectorSize, repetitions);
+    } else {
+        printf("seq");
+        calc(a, b, c, vectorSize, repetitions);
+    }
 
-    startTime = omp_get_wtime();
-    calc(a2, b, c, vectorSize, repetitions);
-    endTime = omp_get_wtime();
-	printf("sequential time: %f\n", endTime - startTime);
-    printf("Check %s\n", compare(a, a2, vectorSize) ? "true" : "false");
+    //startTime = omp_get_wtime();
+    //endTime = omp_get_wtime();
 
     free(a);
-    free(a2);
     free(b);
     free(c);
     return EXIT_SUCCESS;
