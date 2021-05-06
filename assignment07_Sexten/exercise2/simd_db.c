@@ -3,8 +3,8 @@
 #include <omp.h>
 #include <math.h>
 
-void calcSimd(float *a, float * b, float *c, int size, long repetitions) {
-	for(int run = 0; run < repetitions; ++run) {
+void calcSimd(double *a, double * b, double *c, int size, long repetitions) {
+	for(long run = 0; run < repetitions; ++run) {
         #pragma omp simd aligned(a,b,c : 16)
 		for(int i = 0; i < size; ++i) {
 			a[i] += b[i] * c[i];
@@ -12,7 +12,7 @@ void calcSimd(float *a, float * b, float *c, int size, long repetitions) {
 	}
 }
 
-void calc(float *a, float * b, float *c, int size, long repetitions) {
+void calc(double *a, double * b, double *c, int size, long repetitions) {
 	for(int run = 0; run < repetitions; ++run) {
 		for(int i = 0; i < size; ++i) {
 			a[i] += b[i] * c[i];
@@ -20,15 +20,15 @@ void calc(float *a, float * b, float *c, int size, long repetitions) {
 	}
 }
 
-float *init(int size, int value){
-    float *array = aligned_alloc(16, size*sizeof(float));
+double *init(int size, int value){
+    double *array = aligned_alloc(16, size*sizeof(double));
     for(int i = 0; i < size; i++){
         array[i] = value < 0 ? i : value;
     }
     return array;
 }
 
-int compare(float *a, float *b, int size){
+int compare(double *a, double *b, int size){
     for(int i = 0; i < size; i++){
         if (fabs(a[i] - b[i]) > 0.001){
             return 0;
@@ -40,10 +40,10 @@ int compare(float *a, float *b, int size){
 int main(void){
     long repetitions = 1e6;
     int vectorSize = 2048;
-    float *a = init(vectorSize, 0);
-    float *a2 = init(vectorSize, 0);
-    float *b = init(vectorSize, 1);
-    float *c = init(vectorSize, -1);
+    double *a = init(vectorSize, 0);
+    double *a2 = init(vectorSize, 0);
+    double *b = init(vectorSize, 1);
+    double *c = init(vectorSize, -1);
     double startTime;
 	double endTime;
     startTime = omp_get_wtime();
