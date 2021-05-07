@@ -49,6 +49,16 @@ Instead of relying on the compiler to vectorize the code for us, we will do so m
 - Compile your OpenMP-vectorized code with `-O1` but without any compiler flags for auto-vectorization and compare its performance for the problem size 2048 to both the sequential version and the compiler-vectorized version. What can you observe? Is the result still correct?
   While simd without the aligned clause needs 1.724 seconds, with the aligned clause i could reduce the result to 0.627 seconds.
 - Verify any findings using `perf` as described in Exercise 1.
+
+ | Name                            | Event Code | Unit Mask | Value Simd | Value Seq  |
+ | ------------------------------- | :--------: | :-------: | :--------: | :--------: |
+ | SIMD_INST_RETIRED.PACKED_SINGLE |     C7     |    01     | 2048000059 |     43     |
+ | SIMD_INST_RETIRED.SCALAR_SINGLE |     C7     |    02     | 8192012289 |    6144    |
+ | SIMD_INST_RETIRED.PACKED_DOUBLE |     C7     |    04     |     0      |     0      |
+ | SIMD_INST_RETIRED.SCALAR_DOUBLE |     C7     |    08     |    2101    |     39     |
+ | SIMD_INST_RETIRED.VECTOR        |     C7     |    10     |    2181    |    113     |
+ | SIMD_INST_RETIRED.ANY           |     C7     |    1F     | 10240016591| 8192006300 |
+
 - Repeat the sequential and OpenMP executions when changing the data type from `float` to `double`. What can you observe?
 With double the execution time increases to 2.469 seconds. Probably because the processors don't have vector registers that allow more than one double operation at a time.
 - How does the solution for this Exercise compare to Exercise 1? Are there any advantages or disadvantages?
