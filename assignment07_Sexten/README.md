@@ -67,6 +67,7 @@ Instead of relying on OpenMP for vectorization, we will do so using compiler-spe
 The result is still correct. We can observe that now we approximately a quarter of the time from the sequential algorithm which intuitivly makes sense.
 
 - Verify any findings using `perf` as described in Exercise 1. 
+
  | Name                            | Event Code | Unit Mask | Value Simd | Value Seq  |
  | ------------------------------- | :--------: | :-------: | :--------: | :--------: |
  | SIMD_INST_RETIRED.PACKED_SINGLE |     C7     |    01     | 2048000042 |     43     |
@@ -75,6 +76,7 @@ The result is still correct. We can observe that now we approximately a quarter 
  | SIMD_INST_RETIRED.SCALAR_DOUBLE |     C7     |    08     |     39     |     39     |
  | SIMD_INST_RETIRED.VECTOR        |     C7     |    10     |    111     |    113     |
  | SIMD_INST_RETIRED.ANY           |     C7     |    1F     | 2048006297 | 8192006300 |
+ 
   sudo perf stat -e r01C7 ./intrinsics 0 && sudo perf stat -e r01C7 ./intrinsics
 
 - How does the solution for this Exercise compare to Exercise 2 and Exercise 1? Are there any advantages or disadvantages?  
