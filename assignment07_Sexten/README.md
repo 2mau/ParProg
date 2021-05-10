@@ -59,10 +59,10 @@ Instead of relying on the compiler to vectorize the code for us, we will do so m
  | Name                            | Event Code | Unit Mask | Value Simd | Value Seq  |
  | ------------------------------- | :--------: | :-------: | :--------: | :--------: |
  | SIMD_INST_RETIRED.PACKED_SINGLE |     C7     |    01     | 2048000059 |     43     |
- | SIMD_INST_RETIRED.SCALAR_SINGLE |     C7     |    02     | 8192012289 | 8192006144 |
+ | SIMD_INST_RETIRED.SCALAR_SINGLE |     C7     |    02     |    8192    |
  | SIMD_INST_RETIRED.PACKED_DOUBLE |     C7     |    04     |     0      |     0      |
  | SIMD_INST_RETIRED.SCALAR_DOUBLE |     C7     |    08     |    2101    |     52     |
- | SIMD_INST_RETIRED.VECTOR        |     C7     |    10     |    2181    |    123     |
+ | SIMD_INST_RETIRED.VECTOR        |     C7     |    10     |    121     |    123     |
  | SIMD_INST_RETIRED.ANY           |     C7     |    1F     | 10240016591| 8192006338 |
 
 - Repeat the sequential and OpenMP executions when changing the data type from `float` to `double`. What can you observe?
@@ -87,7 +87,7 @@ The result is still correct. We can observe that now we approximately a quarter 
  | Name                            | Event Code | Unit Mask | Value Simd | Value Seq  |
  | ------------------------------- | :--------: | :-------: | :--------: | :--------: |
  | SIMD_INST_RETIRED.PACKED_SINGLE |     C7     |    01     | 2048000042 |     43     |
- | SIMD_INST_RETIRED.SCALAR_SINGLE |     C7     |    02     | 8192006144 | 8192006144 |
+ | SIMD_INST_RETIRED.SCALAR_SINGLE |     C7     |    02     |    8192    | 8192006144 |
  | SIMD_INST_RETIRED.PACKED_DOUBLE |     C7     |    04     |     0      |     0      |
  | SIMD_INST_RETIRED.SCALAR_DOUBLE |     C7     |    08     |     39     |     52     |
  | SIMD_INST_RETIRED.VECTOR        |     C7     |    10     |    111     |    123     |
