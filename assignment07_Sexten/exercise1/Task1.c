@@ -5,13 +5,12 @@
 #define REPETITIONS 1000000
 
 float* init(int size){
-    float d = 2.0;
     float* array = (float *) malloc((size) * sizeof(float));
     for(int32_t i = 0 ; i < size; i++){
         if(i == 0){
             array[i] = 1;
         }
-        else array[i] = i;
+        else array[i] = log(i);
     }
     return array;
 }

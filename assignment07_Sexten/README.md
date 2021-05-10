@@ -36,6 +36,12 @@ for(int run = 0; run < repetitions; ++run) {
   <sub>In case you are interested: For further events relevant to the CPU type on LCC2 and short event descriptions, see Table 19-23 on pages 415-438 of the [Intel® 64 and IA-32 Architectures Software Developer’s Manual Volume 3B: System Programming Guide, Part 2](https://www.intel.com/content/www/us/en/architecture-and-technology/64-ia-32-architectures-software-developer-vol-3b-part-2-manual.html). It lists all events that can be counted with `perf` on our hardware.</sub>
 
 - Enter the wall clock time of the sequential program and the auto-vectorized version with size 2048 and 1e6 repetitions to the spreadsheet linked on Discord.
+## Solution
+
+Vectorization gives a speedup. 
+Increasing the Vector size will decrease the speedup  
+The Solution was still the same in my case  
+Interesting note: On my local machine the speedup was round about 3. Seems like modern CPUs are a lot better using vectorization
 
 ## Exercise 2 (1 Point)
 
