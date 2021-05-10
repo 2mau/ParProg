@@ -16,9 +16,11 @@
 module load gcc/8.2.0
 make clean
 make
-./intrinsics
-./intrinsics
-./intrinsics
-./intrinsics
+# perf stat -e r01C7 ./intrinsics 0 && perf stat -e r01C7 ./intrinsics
+# perf stat -e r02C7 ./intrinsics 0 && perf stat -e r02C7 ./intrinsics
+# perf stat -e r04C7 ./intrinsics 0 && perf stat -e r04C7 ./intrinsics
+# perf stat -e r08C7 ./intrinsics 0 && perf stat -e r08C7 ./intrinsics
+# perf stat -e r10C7 ./intrinsics 0 && perf stat -e r10C7 ./intrinsics
+# perf stat -e r1FC7 ./intrinsics 0 && perf stat -e r1FC7 ./intrinsics
 ./intrinsics
 make clean

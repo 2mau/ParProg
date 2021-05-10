@@ -1,0 +1,166 @@
+  Loading gcc/8.2.0
+rm -f intrinsics
+gcc -std=gnu11 -Wall -Wextra -lm -g -O1 -fopenmp    intrinsics.c   -o intrinsics
+intrinsics.c:45:5: warning: second argument of ‘main’ should be ‘char **’ [-Wmain]
+ int main(int argc, void ** argv){
+     ^~~~
+intrinsics.c: In function ‘main’:
+intrinsics.c:59:14: error: ‘a2’ undeclared (first use in this function); did you mean ‘a’?
+         calc(a2, b, c, vectorSize, repetitions);
+              ^~
+              a
+intrinsics.c:59:14: note: each undeclared identifier is reported only once for each function it appears in
+intrinsics.c:45:28: warning: unused parameter ‘argv’ [-Wunused-parameter]
+ int main(int argc, void ** argv){
+                    ~~~~~~~~^~~~
+make: *** [intrinsics] Error 1
+Workload failed: No such file or directory
+Workload failed: No such file or directory
+Workload failed: No such file or directory
+Workload failed: No such file or directory
+Workload failed: No such file or directory
+Workload failed: No such file or directory
+rm -f intrinsics
+  Loading gcc/8.2.0
+rm -f intrinsics
+gcc -std=gnu11 -Wall -Wextra -lm -g -O1 -fopenmp    intrinsics.c   -o intrinsics
+intrinsics.c:45:5: warning: second argument of ‘main’ should be ‘char **’ [-Wmain]
+ int main(int argc, void ** argv){
+     ^~~~
+intrinsics.c: In function ‘main’:
+intrinsics.c:45:28: warning: unused parameter ‘argv’ [-Wunused-parameter]
+ int main(int argc, void ** argv){
+                    ~~~~~~~~^~~~
+
+ Performance counter stats for './intrinsics 0':
+
+                42      r01C7:u                                                     
+
+       4.987492966 seconds time elapsed
+
+       4.982751000 seconds user
+       0.004000000 seconds sys
+
+
+
+ Performance counter stats for './intrinsics':
+
+     2,048,000,042      r01C7:u                                                     
+
+       3.114975738 seconds time elapsed
+
+       3.109762000 seconds user
+       0.004998000 seconds sys
+
+
+
+ Performance counter stats for './intrinsics 0':
+
+    16,384,008,192      r02C7:u                                                     
+
+       4.968452068 seconds time elapsed
+
+       4.965576000 seconds user
+       0.012279000 seconds sys
+
+
+
+ Performance counter stats for './intrinsics':
+
+     8,192,008,192      r02C7:u                                                     
+
+       3.120151932 seconds time elapsed
+
+       3.114881000 seconds user
+       0.005000000 seconds sys
+
+
+
+ Performance counter stats for './intrinsics 0':
+
+                 0      r04C7:u                                                     
+
+       4.993652882 seconds time elapsed
+
+       4.988017000 seconds user
+       0.006000000 seconds sys
+
+
+
+ Performance counter stats for './intrinsics':
+
+                 0      r04C7:u                                                     
+
+       3.113831798 seconds time elapsed
+
+       3.108549000 seconds user
+       0.005003000 seconds sys
+
+
+
+ Performance counter stats for './intrinsics 0':
+
+                38      r08C7:u                                                     
+
+       4.968421669 seconds time elapsed
+
+       4.963922000 seconds user
+       0.004003000 seconds sys
+
+
+
+ Performance counter stats for './intrinsics':
+
+                38      r08C7:u                                                     
+
+       3.114115558 seconds time elapsed
+
+       3.109589000 seconds user
+       0.004000000 seconds sys
+
+
+
+ Performance counter stats for './intrinsics 0':
+
+               107      r10C7:u                                                     
+
+       4.967966920 seconds time elapsed
+
+       4.965364000 seconds user
+       0.002004000 seconds sys
+
+
+
+ Performance counter stats for './intrinsics':
+
+               107      r10C7:u                                                     
+
+       3.113122413 seconds time elapsed
+
+       3.108933000 seconds user
+       0.004000000 seconds sys
+
+
+
+ Performance counter stats for './intrinsics 0':
+
+    16,384,008,341      r1FC7:u                                                     
+
+       4.968215385 seconds time elapsed
+
+       4.962798000 seconds user
+       0.004999000 seconds sys
+
+
+
+ Performance counter stats for './intrinsics':
+
+    10,240,008,341      r1FC7:u                                                     
+
+       3.115306344 seconds time elapsed
+
+       3.109399000 seconds user
+       0.003999000 seconds sys
+
+
+rm -f intrinsics

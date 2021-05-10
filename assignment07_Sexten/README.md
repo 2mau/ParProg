@@ -92,7 +92,10 @@ The result is still correct. We can observe that now we approximately a quarter 
  | SIMD_INST_RETIRED.SCALAR_DOUBLE |     C7     |    08     |     39     |     52     |
  | SIMD_INST_RETIRED.VECTOR        |     C7     |    10     |    111     |    123     |
  | SIMD_INST_RETIRED.ANY           |     C7     |    1F     | 2048006297 | 8192006338 |
- 
+
+ * Scalar operations operate on only one element, for example a single integer.
+ * Packed operations operate on any element in the vector in parallel, e.g. they multiply 4 32-bit integers in a single instruction.
+
   sudo perf stat -e r01C7 ./intrinsics 0 && sudo perf stat -e r01C7 ./intrinsics
 
 - How does the solution for this Exercise compare to Exercise 2 and Exercise 1? Are there any advantages or disadvantages?  
