@@ -38,7 +38,7 @@ for(int run = 0; run < repetitions; ++run) {
 - Enter the wall clock time of the sequential program and the auto-vectorized version with size 2048 and 1e6 repetitions to the spreadsheet linked on Discord.
 ## Solution
 
-Vectorization gives a speedup. 
+Vectorization gives a speedup. (-ftree-vectorize flag)
 Increasing the Vector size will decrease the speedup  
 The Solution was still the same in my case  
 Interesting note: On my local machine the speedup was round about 3. Seems like modern CPUs are a lot better using vectorization
