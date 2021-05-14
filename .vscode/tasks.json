@@ -1,0 +1,24 @@
+{
+  "tasks": [
+    {
+      "label": "Build from Makefile",
+      "type": "shell",
+      "command": "pwd && cd ${fileDirname} && make",
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+    {
+      "label": "Run make clean on folder",
+      "type": "shell",
+      "command": "make clean",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    }
+  ],
+  "version": "2.0.0"
+}
