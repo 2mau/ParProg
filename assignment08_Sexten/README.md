@@ -96,6 +96,9 @@ Investigate the following given code examples along with their task.
         }
     }
     ```
+
+Can be parallelized by the compiler and manually. There is no data dependence between x and y, also there is obviously no control dependence.
+
 - Normalize the following loop nest:
     ```C
     for (int i=4; i<=N; i+=7) {
@@ -104,6 +107,23 @@ Investigate the following given code examples along with their task.
         }
     }
     ```
+
+In this specific case one could just remove the inner loop since it is doing the same operation (with no side effects) over and over again.
+```C
+for(int In = 1; In <= (N-4+7)/7; In++){
+    A[In*7-7+4]
+}
+```
+
+For completeness here also the Inner Loop is normalized
+
+```C
+for(int In = 1; In <= (N-4+7)/7; In++){
+    for(int Jn = 1; Jn <= (N-0+3)/3; Jn++){
+        A[In*7-7+4]
+    }
+}
+```
 - Does the following code excerpt hold any dependencies? If not, how would you parallelize it? If yes, what are the distance and direction vectors?
     ```C
     for(int i = 1; i < N; i++) {
@@ -114,6 +134,17 @@ Investigate the following given code examples along with their task.
         }
     }
     ```
+There is the True Dependency a[i].
+
+For a[2][1][1]; S1[1][1][2] $\delta$ S1[2][1][1]
+For a[3][1][1]; S1[2][1][2] $\delta$ S1[3][1][1]
+...
+...
+For a[N-1][M][L-2]; S1[N-2][M][L-1] $\delta$ S1[N-1][M][L-2]
+Distance Vector (1,0,-1) = S1[N-1][M][L-2] - S1[N-2][M][L-1]
+Direction Vector (<,=,>)
+
+Regardless of the dependencies parallelizing the second for loop would still work since the dependency is only loop carried over the first and third loop.
 
 ## General Notes
 
