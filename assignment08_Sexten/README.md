@@ -87,8 +87,15 @@ Compile the given program [analysis.c](analysis.c) with gcc 8.2.0 and the flags 
 
 Examine the output. 
 - What information about dependence analysis can you find in the output?
+  - loop boundaries are calculated where possible
+  - loop startindex, direction and step is calculated (PHI: {4, +, 1}_3)
+  - maxValue loop variable, direction, maxValue of loop variable type of PHI: {1020, +, 4294967295}_3
+  - calculates distance (dependence distance  = 4) and direction (dependence distance negative)
 - Can you identify any information pointing to successful or unsuccessful vectorization?
+  - see c file
 - Does the compiler perform any analysis beyond checking for dependencies and semantic correctness?
+  - alignment
+  - checks which statements should be vectorized detects simple statements (vect_is_simple_use: operand argc_13(D))
 
 ## Exercise 3 (1 Point)
 
