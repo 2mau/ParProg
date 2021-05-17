@@ -66,7 +66,7 @@ for (i=1; i<N; i++) {
 |-------|-------------------------|---------------|------------|
 | 1     | Beside the depend. yes  | True depend.  | split loop |
 | 2     | Baside the depend. yes  | Due to the nowait the barrier to sync after loop is broken and a true dependencie was created | Remove nowait |
-| 3     | yes                     | No dependencies | no further changes needed|
+| 3     | yes                     | No dependencies but there might be a race condition due to default shared x | privatize x |
 | 4     | no undefined behaviour due to private (not initialized) | No dependencies | with the use of firstprivate we can move the value of f into the loop and with lastprivate we can keep the last value of x|
 | 5     | Beside the race condition yes  | The access of sum is not controlled and therefore we have a race condition | shared value with access control like atomic or reduction | 
 5. : The advantages of using reduction really depends on the size of the problem. (Cache and memory overhead). But in general faster than atomic because there is no access controll needed 
