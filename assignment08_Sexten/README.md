@@ -152,17 +152,20 @@ for(int In = 1; In <= (N-4+7)/7; In++){
     }
     ```
 There is the True Dependency a[i].
-
-For a[2][1][1]; S1[1][1][2] $\delta$ S1[2][1][1]
-For a[3][1][1]; S1[2][1][2] $\delta$ S1[3][1][1]
+```
+For a[2][1][1]; S1[1][1][2] d S1[2][1][1]
+For a[3][1][1]; S1[2][1][2] d S1[3][1][1]
 ...
 ...
-For a[N-1][M][L-2]; S1[N-2][M][L-1] $\delta$ S1[N-1][M][L-2]
+For a[N-1][M][L-2]; S1[N-2][M][L-1] d S1[N-1][M][L-2]
 Distance Vector (1,0,-1) = S1[N-1][M][L-2] - S1[N-2][M][L-1]
 Direction Vector (<,=,>)
 
-Regardless of the dependencies parallelizing the second for loop would still work since the dependency is only loop carried over the first and third loop.
+d = delta
+```
 
+Regardless of the dependencies parallelizing the second for loop would still work since the dependency is only loop carried over the first and third loop.
+'''
 ## General Notes
 
 All the material required by the tasks above (e.g., code, figures, text, etc...) must be part of the solution that is handed in. Your experiments should be reproducible and comparable to your measurements using the solution materials that you hand in.
