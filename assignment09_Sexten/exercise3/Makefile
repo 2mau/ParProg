@@ -1,4 +1,4 @@
-CFLAGS = -std=gnu11 -Wall -Wextra -O2 -ftree-vectorize -fopt-info-vec-all
+CFLAGS = -std=gnu11 -Wall -Wextra -fopenmp
 .PHONY: all
 all: analysis
 

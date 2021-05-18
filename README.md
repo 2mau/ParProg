@@ -17,6 +17,25 @@ Generally, topics discussed here include
 - performance-oriented programming
 - proper experiment orchestration and benchmarking
 - parallel programming tools
+# UIBK PS Parallel Systems (703078, 2021)
+
+This repository contains material required to complete exercises for the
+Parallel Programming lab in the 2021 summer semester, including assignment
+sheets and any associated materials. Note that some of this material is based
+on previous years.
+
+**Make sure to read this document carefully, as it contains vital information
+regarding the grading of exercises.**
+
+## Topics
+
+Generally, topics discussed here include
+
+- parallel programming concepts
+- shared memory parallelization using OpenMP
+- performance-oriented programming
+- proper experiment orchestration and benchmarking
+- parallel programming tools
 
 ## Schedule
 
@@ -37,6 +56,7 @@ for that assignment have to be handed in via OLAT by 17:00 on the previous day
 | 2021-05-04 | [6](06)    | More OpenMP applications (prefix sum and N-Queens problem)  |
 | 2021-05-11 | [7](07)    | Vectorization with and without OpenMP                       |
 | 2021-05-18 | [8](08)    | OpenMP correctness, auto-vectorization, dependence analysis |
+| 2021-05-25 | [9](09)    | Dependencies, Dependencies, Dependencies                    |
 
 ## General Information
 
