@@ -23,9 +23,6 @@ int main(int argc, char** argv) {
 		x[i] = (x[i] + y[i - 1]) / 2;
 	}
 
-	// Time
-	// 0.008732
-
 	end = omp_get_wtime();
 	printf("%f\n", end - start);
 

@@ -25,10 +25,8 @@ int main(int argc, char** argv) {
 	// True Dependence: first write then read in
 	// S17[1] TD S19[2],...
 	// Loop carried dependence
-	// S19 is control dependent on S17
+	// S21 is control dependent on S19
 
-	// Time
-	// 0.014513
 
 	end = omp_get_wtime();
 	printf("%f,", end - start);

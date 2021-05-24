@@ -22,9 +22,6 @@ int main(int argc, char** argv) {
 	// S18[1] TD S17[2],...
 	// Loop carried dependence
 
-	// Time
-	// 0.017029
-
 	end = omp_get_wtime();
 	printf("%f,", end - start);
 

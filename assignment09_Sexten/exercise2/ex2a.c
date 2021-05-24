@@ -25,9 +25,6 @@ int main(int argc, char** argv) {
     //Loop carried dependence
 	//Cannot be parallelized trivialy by the compiler.
 
-    //Time
-    //0.024643
-
 	end = omp_get_wtime();
 	printf("%f,", end - start);
 

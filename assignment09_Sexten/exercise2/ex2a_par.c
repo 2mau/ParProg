@@ -19,9 +19,6 @@ int main(int argc, char** argv) {
 		x[i] = (factor/(2^i)) * y[i];
 	}
 
-	//Time
-	//0.002979
-
 	end = omp_get_wtime();
 	printf("%f\n", end - start);
 

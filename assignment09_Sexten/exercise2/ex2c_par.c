@@ -32,8 +32,6 @@ int main(int argc, char** argv) {
 		}
 	}
 
-	// Time
-	// 0.008539
 
 	end = omp_get_wtime();
 	printf("%f\n", end - start);
