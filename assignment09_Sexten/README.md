@@ -156,10 +156,10 @@ for (int i = 0; i < 4; ++i) {
 - For each iteration, give the corresponding distance and direction vectors
 ```
 x,y,z true dependencies
-x: distance vector [source = (1,2), sink = (3,1)]: (2,1), direction vector (<, =)
-y: distance vector [source = (1,3), sink = (3,2)]: (2,1), direction vector (<, =)
-z: distance vector [source = (2,2), sink = (4,1)]: (2,1), direction vector (<, =)
-p: distance vector [source = (2,3), sink = (4,2)]: (2,1), direction vector (<, =)
+x: distance vector [source = (1,2), sink = (3,1)]: (2,1), direction vector (<, <)
+y: distance vector [source = (1,3), sink = (3,2)]: (2,1), direction vector (<, <)
+z: distance vector [source = (2,2), sink = (4,1)]: (2,1), direction vector (<, <)
+p: distance vector [source = (2,3), sink = (4,2)]: (2,1), direction vector (<, <)
 ```
 
 - How would you parallelize this code? 
