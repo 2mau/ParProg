@@ -1,0 +1,98 @@
+  Loading gcc/8.2.0
+rm -f ex2a ex2a_par ex2b ex2b_par ex2c ex2c_par
+gcc -std=gnu11 -Wall -Wextra -fopenmp    ex2a.c   -o ex2a
+ex2a.c: In function ‘main’:
+ex2a.c:5:14: warning: unused parameter ‘argc’ [-Wunused-parameter]
+ int main(int argc, char** argv) {
+          ~~~~^~~~
+gcc -std=gnu11 -Wall -Wextra -fopenmp    ex2a_par.c   -o ex2a_par
+ex2a_par.c: In function ‘main’:
+ex2a_par.c:5:14: warning: unused parameter ‘argc’ [-Wunused-parameter]
+ int main(int argc, char** argv) {
+          ~~~~^~~~
+gcc -std=gnu11 -Wall -Wextra -fopenmp    ex2b.c   -o ex2b
+ex2b.c: In function ‘main’:
+ex2b.c:5:14: warning: unused parameter ‘argc’ [-Wunused-parameter]
+ int main(int argc, char** argv) {
+          ~~~~^~~~
+gcc -std=gnu11 -Wall -Wextra -fopenmp    ex2b_par.c   -o ex2b_par
+ex2b_par.c: In function ‘main’:
+ex2b_par.c:5:14: warning: unused parameter ‘argc’ [-Wunused-parameter]
+ int main(int argc, char** argv) {
+          ~~~~^~~~
+gcc -std=gnu11 -Wall -Wextra -fopenmp    ex2c.c   -o ex2c
+ex2c.c: In function ‘main’:
+ex2c.c:5:14: warning: unused parameter ‘argc’ [-Wunused-parameter]
+ int main(int argc, char** argv) {
+          ~~~~^~~~
+gcc -std=gnu11 -Wall -Wextra -fopenmp    ex2c_par.c   -o ex2c_par
+ex2c_par.c: In function ‘main’:
+ex2c_par.c:5:14: warning: unused parameter ‘argc’ [-Wunused-parameter]
+ int main(int argc, char** argv) {
+          ~~~~^~~~
+Task a
+Size = 1000000
+Threads = 2
+0.008759,0.007433
+Threads = 4
+0.009038,0.004853
+Threads = 8
+0.008673,0.005356
+Size = 10000000
+Threads = 2
+0.084818,0.072665
+Threads = 4
+0.086547,0.038224
+Threads = 8
+0.087369,0.030839
+Size = 100000000
+Threads = 2
+0.847444,0.694588
+Threads = 4
+0.853193,0.357958
+Threads = 8
+0.853909,0.288923
+Task b
+Size = 1000000
+Threads = 2
+0.021147,0.014261
+Threads = 4
+0.020994,0.012338
+Threads = 8
+0.021658,0.012040
+Size = 10000000
+Threads = 2
+0.208356,0.107028
+Threads = 4
+0.211145,0.064988
+Threads = 8
+0.210911,0.068809
+Size = 100000000
+Threads = 2
+2.087159,1.049001
+Threads = 4
+2.094611,0.617600
+Threads = 8
+2.088273,0.664612
+Task c
+Size = 1000000
+Threads = 2
+0.017922,0.015670
+Threads = 4
+0.018105,0.011878
+Threads = 8
+0.018734,0.013223
+Size = 10000000
+Threads = 2
+0.171794,0.145075
+Threads = 4
+0.173004,0.097550
+Threads = 8
+0.173357,0.078599
+Size = 100000000
+Threads = 2
+1.713304,1.430069
+Threads = 4
+1.713374,0.930653
+Threads = 8
+1.711646,0.757565
