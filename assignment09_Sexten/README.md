@@ -7,13 +7,23 @@
 
 Consider the following individual code snippets, and analyze them regarding dependencies. 
 
-
 ````
 for (int i=0; i < n-1; i++) {
-    x[i] = (y[i] + x[i+1]) / 7;
+    x[i] = (y[i] + x2[i+1]) / 7;
 }
 ````
 
+````
+pragma omp parallel for
+for(int i = 0; i< n-1; i++) {
+    x[i] = x2[i];
+}
+#pragma omp parallel for 
+for (int i=0; i < n-1; i++) {
+    x[i] = (y[i] + x2[i+1]) / 7;
+}
+````
+Anti dependence can be resolved by copying the values in a second array and then using the "copy" of it for x[i+1]
 ````
 for (int i=0; i < n; i++) {
     a = (x[i] + y[i]) / (i+1);
@@ -23,7 +33,17 @@ for (int i=0; i < n; i++) {
 f = sqrt(a + k);
 
 ````
+````
+#pragma omp parallel for lastprivate(a)
+for (int i=0; i < n; i++) {
+    a = (x[i] + y[i]) / (i+1);
+    z[i] = a;
+}
 
+f = sqrt(a + k);
+
+````
+Making a private and lastprivate.  No dependenies left.
 ````
 for (int i=0; i < n; i++) {
    x[i] = y[i] * 2 + b * i;
@@ -35,6 +55,13 @@ for (int i=0; i < n; i++) {
 }
 ````
 
+````
+#pragma omp parallel for 
+for(int i = 0; i< n; i++) {
+    x[i] = y[i] * 2 + b * i;
+    y[i] = x[i]  + a / (i+1);
+}
+````
 
 ### Tasks
 Regarding each snippet
