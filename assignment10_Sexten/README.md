@@ -10,6 +10,8 @@ The file [real.tar.gz](real.tar.gz) contains a realistic implementation of a (si
 
 Using `gprof` requires three steps: First, the application needs to be compiled with `gcc` and the flag `-pg`. This causes the compiler to put instrumentation code in the executable. Then, run the application normally, which will produce a new file `gmon.out`. Finally, run `gprof <executable> gmon.out > analysis.txt` in order to obtain the analysis results. Add the `--line` flag to `gprof` if you need more fine-grained information.
 
+`make && ./real && gprof real gmon.out > analysis.txt`
+
 ### Tasks
 
 - Obtain a performance profile of the given application by following the steps outlined above.
