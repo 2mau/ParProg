@@ -9,26 +9,44 @@
 
 int *a;
 int *b;
+int *c;
 
-// Assume N is odd
 
 void original(){
-  for (int i = 0; i < N - 1; ++i) {
-      a[i] = b[i] + b[i + 1];
+  int sum_a = 0;
+  int sum_b = 0;
+  int sum_c = 0;
+  for (int i = 0; i < N; ++i) {
+      sum_a += a[i];
+      sum_b += b[i];
+      sum_c += c[i];
   }
 }
 
 void trans(){
-  // Apply loop unrolling
-  for (int i = 0; i < N - 1; i=i+2) {
-      a[i] = b[i] + b[i + 1];
-      a[i+1] = b[i+1] + b[i + 1 + 1];
+  int sum_a = 0;
+  int sum_b = 0;
+  int sum_c = 0;
+
+  // loop fision || can be better if the cache can be used more efficiently
+  for (int i = 0; i < N; ++i) {
+      sum_a += a[i];
   }
+  for (int i = 0; i < N; ++i) {
+      sum_b += b[i];
+  }
+  for (int i = 0; i < N; ++i) {
+      sum_c += c[i];
+  }
+
+
+  printf("%d", sum_c);
 }
 
 void init(){
   a = malloc(N*sizeof(int));
   b = malloc(N*sizeof(int));
+  c = malloc(N*sizeof(int));
 }
 
 int main(){

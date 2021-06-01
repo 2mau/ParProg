@@ -7,28 +7,24 @@
 
 #define N 100000000
 
-int *a;
-int *b;
-
-// Assume N is odd
+double *a;
 
 void original(){
-  for (int i = 0; i < N - 1; ++i) {
-      a[i] = b[i] + b[i + 1];
+  for (int i = 0; i < N; ++i) {
+      a[i] *= hypot(0.3, 0.4);
   }
 }
 
 void trans(){
-  // Apply loop unrolling
-  for (int i = 0; i < N - 1; i=i+2) {
-      a[i] = b[i] + b[i + 1];
-      a[i+1] = b[i+1] + b[i + 1 + 1];
+  // Loop invariant code-motion
+  double tmp = hypot(0.3, 0.4);
+  for (int i = 0; i < N; ++i) {
+      a[i] *= tmp;
   }
 }
 
 void init(){
-  a = malloc(N*sizeof(int));
-  b = malloc(N*sizeof(int));
+  a = malloc(N*sizeof(double));
 }
 
 int main(){

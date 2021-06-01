@@ -9,26 +9,38 @@
 
 int *a;
 int *b;
+int *c;
 
-// Assume N is odd
 
 void original(){
-  for (int i = 0; i < N - 1; ++i) {
-      a[i] = b[i] + b[i + 1];
+  int sum = 0;
+  int min = a[0];
+
+  for (int i = 1; i < N; ++i) {
+      min = (a[i] < min) ? a[i] : min;
+  }
+  for (int i = 0; i < N; ++i) {
+      sum += a[i];
   }
 }
 
 void trans(){
-  // Apply loop unrolling
-  for (int i = 0; i < N - 1; i=i+2) {
-      a[i] = b[i] + b[i + 1];
-      a[i+1] = b[i+1] + b[i + 1 + 1];
+  // loop peeling and fusion
+  // Loop peeling is a special case of loop splitting which splits any problematic first (or last) few iterations
+  // from the loop and performs them outside of the loop body.
+  int sum = a[0];
+  int min = a[0];
+
+  for (int i = 1; i < N; ++i) {
+      min = (a[i] < min) ? a[i] : min;
+      sum += a[i];
   }
 }
 
 void init(){
   a = malloc(N*sizeof(int));
   b = malloc(N*sizeof(int));
+  c = malloc(N*sizeof(int));
 }
 
 int main(){

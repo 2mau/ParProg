@@ -9,26 +9,35 @@
 
 int *a;
 int *b;
+int *c;
 
-// Assume N is odd
 
 void original(){
-  for (int i = 0; i < N - 1; ++i) {
-      a[i] = b[i] + b[i + 1];
+  for (int i = 0; i < N; ++i) {
+      if (N % 2) {
+          a[i] = b[i] + 5;
+      } else {
+          a[i] = c[i] + 5;
+      }
   }
 }
 
 void trans(){
-  // Apply loop unrolling
-  for (int i = 0; i < N - 1; i=i+2) {
-      a[i] = b[i] + b[i + 1];
-      a[i+1] = b[i+1] + b[i + 1 + 1];
+  if (N % 2) {
+    for (int i = 0; i < N; ++i) {
+            a[i] = b[i] + 5;
+    }
+  } else {
+    for (int i = 0; i < N; ++i) {
+            a[i] = c[i] + 5;
+    }
   }
 }
 
 void init(){
   a = malloc(N*sizeof(int));
   b = malloc(N*sizeof(int));
+  c = malloc(N*sizeof(int));
 }
 
 int main(){
