@@ -1,8 +1,9 @@
 CC=gcc
-CC_FLAGS=-O3 -g3 -lm -pg
+CC_FLAGS=-g -std=gnu11 -Wall -Wextra -O3
+
 
 .PHONEY: all
-all: real
+all: a
 
 SRC=$(wildcard *.c)
 
@@ -11,10 +12,10 @@ real: $(SRC)
 
 .PHONEY: clean
 clean:
-	@rm real
+	@rm a
 
 .PHONEY: run
 run: all
-	@echo "Sequential:"
-	@./real
+	@echo "all:"
+	@./a
 	@echo
