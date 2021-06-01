@@ -28,35 +28,35 @@
 # ./path/to/application <command> <line> <arguments>
 
 echo "snippet a"
-gcc -pg -g -std=gnu11 -Wall -Wextra -O3 -lm -fopenmp -o snippet_a a.c &&  ./snippet_a
+gcc -g -std=gnu11 -Wall -Wextra -O3 -lm -fopenmp -o snippet_a a.c &&  ./snippet_a
 perf stat -e r01C7 ./snippet_a >> analysis_a
 
 echo ""
 echo "snippet b"
-gcc -pg -g -std=gnu11 -Wall -Wextra -O3 -lm -fopenmp -o snippet_b b.c &&  ./snippet_b
+gcc -g -std=gnu11 -Wall -Wextra -O3 -lm -fopenmp -o snippet_b b.c &&  ./snippet_b
 
 echo ""
 echo "snippet c"
-gcc -pg -g -std=gnu11 -Wall -Wextra -O3 -lm -fopenmp -o snippet_c c.c &&  ./snippet_c
+gcc -g -std=gnu11 -Wall -Wextra -O3 -lm -fopenmp -o snippet_c c.c &&  ./snippet_c
 
 echo ""
 echo "snippet d"
-gcc -pg -g -std=gnu11 -Wall -Wextra -O3 -lm -fopenmp -o snippet_d d.c &&  ./snippet_d
+gcc -g -std=gnu11 -Wall -Wextra -O3 -lm -fopenmp -o snippet_d d.c &&  ./snippet_d
 
 echo ""
 echo "snippet e"
-gcc -pg -g -std=gnu11 -Wall -Wextra -O3 -lm -fopenmp -o snippet_e e.c &&  ./snippet_e
+gcc -g -std=gnu11 -Wall -Wextra -O3 -lm -fopenmp -o snippet_e e.c &&  ./snippet_e
 
 echo ""
 echo "snippet f"
-gcc -pg -g -std=gnu11 -Wall -Wextra -O3 -lm -fopenmp -o snippet_f f.c &&  ./snippet_f
+gcc -g -std=gnu11 -Wall -Wextra -O3 -lm -fopenmp -o snippet_f f.c &&  ./snippet_f
 
 echo ""
 echo "snippet g"
-gcc -pg -g -std=gnu11 -Wall -Wextra -O3 -lm -fopenmp -o snippet_g g.c &&  ./snippet_g
+gcc -g -std=gnu11 -Wall -Wextra -O3 -lm -fopenmp -o snippet_g g.c &&  ./snippet_g
 
 echo ""
 echo "snippet h"
-gcc -pg -g -std=gnu11 -Wall -Wextra -O3 -lm -fopenmp -o snippet_h h.c &&  ./snippet_h
+gcc -g -std=gnu11 -Wall -Wextra -O3 -lm -fopenmp -o snippet_h h.c &&  ./snippet_h
 
 rm snippet_a snippet_b snippet_c  snippet_d snippet_e snippet_f  snippet_g  snippet_h

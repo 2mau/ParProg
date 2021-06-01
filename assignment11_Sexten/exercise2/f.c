@@ -12,7 +12,7 @@ int *b;
 int *c;
 
 
-void original(){
+int original(){
   int sum = 0;
   int min = a[0];
 
@@ -22,9 +22,11 @@ void original(){
   for (int i = 0; i < N; ++i) {
       sum += a[i];
   }
+
+  return sum + min;
 }
 
-void trans(){
+int trans(){
   // loop peeling and fusion
   // Loop peeling is a special case of loop splitting which splits any problematic first (or last) few iterations
   // from the loop and performs them outside of the loop body.
@@ -35,6 +37,8 @@ void trans(){
       min = (a[i] < min) ? a[i] : min;
       sum += a[i];
   }
+
+  return sum+min;
 }
 
 void init(){
@@ -48,14 +52,15 @@ int main(){
   init();
 
   double startTime_original = omp_get_wtime();
-  original();
+  int res = original();
 	double endTime_original = omp_get_wtime();
 
 
   double startTime_trans = omp_get_wtime();
-  trans();
+  int res_trans = trans();
   double endTime_trans = omp_get_wtime();
 
 	printf("original time: %f\n", endTime_original - startTime_original);
 	printf("trans time: %f\n", endTime_trans - startTime_trans);
+  printf("res %d, res_trans %d", res, res_trans);
 }

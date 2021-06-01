@@ -12,7 +12,7 @@ int *b;
 int *c;
 
 
-void original(){
+int original(){
   int sum_a = 0;
   int sum_b = 0;
   int sum_c = 0;
@@ -21,9 +21,12 @@ void original(){
       sum_b += b[i];
       sum_c += c[i];
   }
+
+
+  return sum_a + sum_b + sum_c;
 }
 
-void trans(){
+int trans(){
   int sum_a = 0;
   int sum_b = 0;
   int sum_c = 0;
@@ -40,7 +43,7 @@ void trans(){
   }
 
 
-  printf("%d", sum_c);
+  return sum_a + sum_b + sum_c;
 }
 
 void init(){
@@ -54,14 +57,15 @@ int main(){
   init();
 
   double startTime_original = omp_get_wtime();
-  original();
+  int res = original();
 	double endTime_original = omp_get_wtime();
 
 
   double startTime_trans = omp_get_wtime();
-  trans();
+  int res_trans = trans();
   double endTime_trans = omp_get_wtime();
 
 	printf("original time: %f\n", endTime_original - startTime_original);
 	printf("trans time: %f\n", endTime_trans - startTime_trans);
+  printf("res: %d, res_trans %d", res, res_trans);
 }
