@@ -32,6 +32,7 @@ void trans(){
 
   int e0 = e[0];
   int e1 = e[1];
+
   for (int i = 1; i < N - 2; ++i) {
       if (i < N-3) b[i+1] = a[i] + 1;
       c[i] = 2 * a[i];
