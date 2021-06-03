@@ -67,5 +67,5 @@ int main(){
 
 	printf("original time: %f\n", endTime_original - startTime_original);
 	printf("trans time: %f\n", endTime_trans - startTime_trans);
-  printf("res: %d, res_trans %d", res, res_trans);
+  printf("res: %d, res_trans %d\n", res, res_trans);
 }
