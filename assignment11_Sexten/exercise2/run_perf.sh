@@ -31,5 +31,8 @@ for task in a b c d e f g h
 do
     rm $task
     echo "Snippet $task"
-    gcc -g -std=gnu11 -Wall -Wextra -O3 -fopenmp ${task}.c -o ${task} && ./$task && ./$task 1
+    gcc -g -std=gnu11 -Wall -Wextra -O3 -fopenmp ${task}.c -o ${task}
+    perf stat ./$task
+    perf stat ./$task 1
+echo "------------------"
 done

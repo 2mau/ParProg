@@ -27,19 +27,23 @@ void init(){
   a = malloc(N*sizeof(double));
 }
 
-int main(){
+int main(int argc, char **argv){
 
   init();
 
-  double startTime_original = omp_get_wtime();
-  original();
-	double endTime_original = omp_get_wtime();
+  if(argc > 1){
+    printf("%s", argv[1]);
+    double startTime_original = omp_get_wtime();
+    original();
+    double endTime_original = omp_get_wtime();
+    printf("original time: %f\n", endTime_original - startTime_original);
+  } else{
+    double startTime_trans = omp_get_wtime();
+    trans();
+    double endTime_trans = omp_get_wtime();
+    printf("trans time: %f\n", endTime_trans - startTime_trans);
+  }
 
-
-  double startTime_trans = omp_get_wtime();
-  trans();
-  double endTime_trans = omp_get_wtime();
-
-	printf("original time: %f\n", endTime_original - startTime_original);
-	printf("trans time: %f\n", endTime_trans - startTime_trans);
+	
+	
 }
