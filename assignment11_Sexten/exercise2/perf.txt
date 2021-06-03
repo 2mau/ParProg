@@ -1,324 +1,308 @@
 Snippet a
-trans time: 0.423758
+trans time: 0.417368
 
  Performance counter stats for './a':
 
-            472.80 msec task-clock:u              #    0.995 CPUs utilized          
-                 0      context-switches:u        #    0.000 K/sec                  
-                 0      cpu-migrations:u          #    0.000 K/sec                  
-            98,425      page-faults:u             #    0.208 M/sec                  
-       330,826,040      cycles:u                  #    0.700 GHz                      (50.02%)
-       450,498,288      instructions:u            #    1.36  insn per cycle           (75.05%)
-        50,068,422      branches:u                #  105.898 M/sec                    (75.07%)
-             4,213      branch-misses:u           #    0.01% of all branches          (74.91%)
+            468.00 msec task-clock:u              #    0.997 CPUs utilized          
+       328,550,378      cycles:u                  #    0.702 GHz                      (33.35%)
+       447,430,184      instructions:u            #    1.36  insn per cycle           (50.02%)
+        50,103,109      branch-instructions:u     #  107.058 M/sec                    (50.02%)
+             8,748      branch-misses:u           #    0.02% of all branches          (49.99%)
+         7,025,899      cache-references:u        #   15.013 M/sec                    (33.32%)
+            27,163      cache-misses:u            #    0.387 % of all cache refs      (33.32%)
 
-       0.475296195 seconds time elapsed
+       0.469206146 seconds time elapsed
 
-       0.131811000 seconds user
-       0.341510000 seconds sys
+       0.117012000 seconds user
+       0.351036000 seconds sys
 
 
-1original time: 0.427118
+1original time: 0.422472
 
  Performance counter stats for './a 1':
 
-            476.58 msec task-clock:u              #    0.996 CPUs utilized          
-                 0      context-switches:u        #    0.000 K/sec                  
-                 0      cpu-migrations:u          #    0.000 K/sec                  
-            98,426      page-faults:u             #    0.207 M/sec                  
-       346,944,147      cycles:u                  #    0.728 GHz                      (49.97%)
-       175,162,614      instructions:u            #    0.50  insn per cycle           (75.03%)
-        25,123,604      branches:u                #   52.717 M/sec                    (75.04%)
-             6,761      branch-misses:u           #    0.03% of all branches          (74.99%)
+            472.92 msec task-clock:u              #    0.998 CPUs utilized          
+       347,051,509      cycles:u                  #    0.734 GHz                      (33.19%)
+       175,883,049      instructions:u            #    0.51  insn per cycle           (49.89%)
+        25,186,420      branch-instructions:u     #   53.257 M/sec                    (50.09%)
+             1,070      branch-misses:u           #    0.00% of all branches          (50.10%)
+         6,953,271      cache-references:u        #   14.703 M/sec                    (33.40%)
+            20,563      cache-misses:u            #    0.296 % of all cache refs      (33.22%)
 
-       0.478337689 seconds time elapsed
+       0.473886345 seconds time elapsed
 
-       0.150127000 seconds user
-       0.327278000 seconds sys
+       0.139922000 seconds user
+       0.333815000 seconds sys
 
 
 ------------------
 Snippet b
-trans time: 2.636485
+trans time: 2.599162
 
  Performance counter stats for './b':
 
-          2,988.02 msec task-clock:u              #    0.999 CPUs utilized          
-                 0      context-switches:u        #    0.000 K/sec                  
-                 0      cpu-migrations:u          #    0.000 K/sec                  
-           489,564      page-faults:u             #    0.164 M/sec                  
-     3,041,005,610      cycles:u                  #    1.018 GHz                      (50.00%)
-     3,000,174,560      instructions:u            #    0.99  insn per cycle           (75.00%)
-       400,567,099      branches:u                #  134.058 M/sec                    (75.00%)
-               932      branch-misses:u           #    0.00% of all branches          (75.00%)
+          2,939.49 msec task-clock:u              #    0.999 CPUs utilized          
+     3,028,378,689      cycles:u                  #    1.030 GHz                      (33.30%)
+     3,003,609,198      instructions:u            #    0.99  insn per cycle           (50.00%)
+       400,853,918      branch-instructions:u     #  136.368 M/sec                    (50.00%)
+            10,241      branch-misses:u           #    0.00% of all branches          (50.03%)
+        29,025,981      cache-references:u        #    9.874 M/sec                    (33.34%)
+           208,521      cache-misses:u            #    0.718 % of all cache refs      (33.33%)
 
-       2.990023927 seconds time elapsed
+       2.941795040 seconds time elapsed
 
-       1.182957000 seconds user
-       1.805934000 seconds sys
+       1.227665000 seconds user
+       1.712533000 seconds sys
 
 
-1original time: 2.793873
+1original time: 2.760371
 
  Performance counter stats for './b 1':
 
-          3,124.77 msec task-clock:u              #    0.999 CPUs utilized          
-                 0      context-switches:u        #    0.000 K/sec                  
-                 0      cpu-migrations:u          #    0.000 K/sec                  
-           489,054      page-faults:u             #    0.157 M/sec                  
-     3,392,050,501      cycles:u                  #    1.086 GHz                      (50.00%)
-     1,799,491,431      instructions:u            #    0.53  insn per cycle           (75.01%)
-       100,543,408      branches:u                #   32.176 M/sec                    (75.01%)
-             5,121      branch-misses:u           #    0.01% of all branches          (74.99%)
+          3,091.60 msec task-clock:u              #    0.999 CPUs utilized          
+     3,386,360,267      cycles:u                  #    1.095 GHz                      (33.33%)
+     1,798,434,590      instructions:u            #    0.53  insn per cycle           (50.02%)
+       100,324,198      branch-instructions:u     #   32.451 M/sec                    (50.05%)
+             7,512      branch-misses:u           #    0.01% of all branches          (50.02%)
+        29,700,774      cache-references:u        #    9.607 M/sec                    (33.30%)
+           221,544      cache-misses:u            #    0.746 % of all cache refs      (33.31%)
 
-       3.126825698 seconds time elapsed
+       3.093455254 seconds time elapsed
 
-       1.337452000 seconds user
-       1.788267000 seconds sys
+       1.277804000 seconds user
+       1.812304000 seconds sys
 
 
 ------------------
 Snippet c
-trans time: 0.743858
+trans time: 0.730734
 
  Performance counter stats for './c':
 
-            826.62 msec task-clock:u              #    0.997 CPUs utilized          
-                 0      context-switches:u        #    0.000 K/sec                  
-                 0      cpu-migrations:u          #    0.000 K/sec                  
-           196,135      page-faults:u             #    0.237 M/sec                  
-       275,466,074      cycles:u                  #    0.333 GHz                      (49.94%)
-       350,424,475      instructions:u            #    1.27  insn per cycle           (74.97%)
-        50,194,513      branches:u                #   60.722 M/sec                    (75.08%)
-               775      branch-misses:u           #    0.00% of all branches          (74.99%)
+            813.54 msec task-clock:u              #    0.998 CPUs utilized          
+       275,859,771      cycles:u                  #    0.339 GHz                      (33.19%)
+       350,860,872      instructions:u            #    1.27  insn per cycle           (49.90%)
+        50,167,107      branch-instructions:u     #   61.665 M/sec                    (50.02%)
+             9,507      branch-misses:u           #    0.02% of all branches          (50.12%)
+         1,292,673      cache-references:u        #    1.589 M/sec                    (33.38%)
+               159      cache-misses:u            #    0.012 % of all cache refs      (33.28%)
 
-       0.829262608 seconds time elapsed
+       0.815064677 seconds time elapsed
 
-       0.117930000 seconds user
-       0.709581000 seconds sys
+       0.078038000 seconds user
+       0.736366000 seconds sys
 
 
-1original time: 0.750577
+1original time: 0.737409
 
  Performance counter stats for './c 1':
 
-            834.78 msec task-clock:u              #    0.998 CPUs utilized          
-                 0      context-switches:u        #    0.000 K/sec                  
-                 0      cpu-migrations:u          #    0.000 K/sec                  
-           196,647      page-faults:u             #    0.236 M/sec                  
-       277,352,455      cycles:u                  #    0.332 GHz                      (49.94%)
-       350,386,783      instructions:u            #    1.26  insn per cycle           (74.98%)
-        50,219,847      branches:u                #   60.160 M/sec                    (75.05%)
-             4,422      branch-misses:u           #    0.01% of all branches          (75.02%)
+            821.02 msec task-clock:u              #    0.999 CPUs utilized          
+       278,342,973      cycles:u                  #    0.339 GHz                      (33.26%)
+       350,469,921      instructions:u            #    1.26  insn per cycle           (49.94%)
+        50,268,596      branch-instructions:u     #   61.227 M/sec                    (50.02%)
+               889      branch-misses:u           #    0.00% of all branches          (50.06%)
+         1,296,648      cache-references:u        #    1.579 M/sec                    (33.37%)
+               195      cache-misses:u            #    0.015 % of all cache refs      (33.29%)
 
-       0.836541043 seconds time elapsed
+       0.822148454 seconds time elapsed
 
-       0.107702000 seconds user
-       0.727990000 seconds sys
+       0.091985000 seconds user
+       0.729886000 seconds sys
 
 
 ------------------
 Snippet d
-trans time: 0.403093
+trans time: 0.394768
 
  Performance counter stats for './d':
 
-            453.17 msec task-clock:u              #    0.994 CPUs utilized          
-                 0      context-switches:u        #    0.000 K/sec                  
-                 0      cpu-migrations:u          #    0.000 K/sec                  
-            98,426      page-faults:u             #    0.217 M/sec                  
-       279,461,781      cycles:u                  #    0.617 GHz                      (49.88%)
-       150,307,764      instructions:u            #    0.54  insn per cycle           (75.04%)
-        25,117,231      branches:u                #   55.425 M/sec                    (75.07%)
-             6,715      branch-misses:u           #    0.03% of all branches          (75.05%)
+            445.48 msec task-clock:u              #    0.997 CPUs utilized          
+       277,492,799      cycles:u                  #    0.623 GHz                      (33.29%)
+       149,327,302      instructions:u            #    0.54  insn per cycle           (50.12%)
+        25,031,129      branch-instructions:u     #   56.189 M/sec                    (50.17%)
+             8,441      branch-misses:u           #    0.03% of all branches          (50.10%)
+         7,048,188      cache-references:u        #   15.822 M/sec                    (33.22%)
+            22,223      cache-misses:u            #    0.315 % of all cache refs      (33.22%)
 
-       0.455739795 seconds time elapsed
+       0.446708252 seconds time elapsed
 
-       0.115010000 seconds user
-       0.339031000 seconds sys
+       0.101080000 seconds user
+       0.345274000 seconds sys
 
 
-1original time: 0.395993
+1original time: 0.406732
 
  Performance counter stats for './d 1':
 
-            445.76 msec task-clock:u              #    0.996 CPUs utilized          
-                 0      context-switches:u        #    0.000 K/sec                  
-                 0      cpu-migrations:u          #    0.000 K/sec                  
-            98,426      page-faults:u             #    0.221 M/sec                  
-       276,047,537      cycles:u                  #    0.619 GHz                      (49.94%)
-       150,246,273      instructions:u            #    0.54  insn per cycle           (75.06%)
-        25,129,742      branches:u                #   56.375 M/sec                    (75.11%)
-             4,149      branch-misses:u           #    0.02% of all branches          (74.95%)
+            459.09 msec task-clock:u              #    0.997 CPUs utilized          
+       285,629,815      cycles:u                  #    0.622 GHz                      (33.20%)
+       150,070,800      instructions:u            #    0.53  insn per cycle           (49.93%)
+        25,027,330      branch-instructions:u     #   54.515 M/sec                    (50.15%)
+             7,387      branch-misses:u           #    0.03% of all branches          (50.25%)
+         7,117,051      cache-references:u        #   15.502 M/sec                    (33.30%)
+            22,683      cache-misses:u            #    0.319 % of all cache refs      (33.10%)
 
-       0.447553813 seconds time elapsed
+       0.460474900 seconds time elapsed
 
-       0.113657000 seconds user
-       0.332996000 seconds sys
+       0.116738000 seconds user
+       0.343230000 seconds sys
 
 
 ------------------
 Snippet e
-trans time: 0.076410
+trans time: 0.075720
 trans value: 0
 
  Performance counter stats for './e':
 
-             77.81 msec task-clock:u              #    0.972 CPUs utilized          
-                 0      context-switches:u        #    0.000 K/sec                  
-                 0      cpu-migrations:u          #    0.000 K/sec                  
-             2,413      page-faults:u             #    0.031 M/sec                  
-       183,811,562      cycles:u                  #    2.362 GHz                      (48.95%)
-       378,559,744      instructions:u            #    2.06  insn per cycle           (74.60%)
-        74,465,862      branches:u                #  957.032 M/sec                    (75.62%)
-             6,798      branch-misses:u           #    0.01% of all branches          (75.43%)
+             77.23 msec task-clock:u              #    0.985 CPUs utilized          
+       180,220,510      cycles:u                  #    2.334 GHz                      (32.69%)
+       372,646,271      instructions:u            #    2.07  insn per cycle           (49.52%)
+        74,635,304      branch-instructions:u     #  966.403 M/sec                    (49.57%)
+             9,520      branch-misses:u           #    0.01% of all branches          (50.47%)
+        18,822,322      cache-references:u        #  243.718 M/sec                    (33.65%)
+             1,740      cache-misses:u            #    0.009 % of all cache refs      (33.62%)
 
-       0.080084022 seconds time elapsed
+       0.078409414 seconds time elapsed
 
-       0.074557000 seconds user
-       0.004030000 seconds sys
+       0.070217000 seconds user
+       0.007911000 seconds sys
 
 
-1original time: 0.090780
+1original time: 0.090294
 original value: 0
 
  Performance counter stats for './e 1':
 
-             92.16 msec task-clock:u              #    0.982 CPUs utilized          
-                 0      context-switches:u        #    0.000 K/sec                  
-                 0      cpu-migrations:u          #    0.000 K/sec                  
-             2,414      page-faults:u             #    0.026 M/sec                  
-       215,694,673      cycles:u                  #    2.340 GHz                      (50.09%)
-       224,504,230      instructions:u            #    1.04  insn per cycle           (75.04%)
-        25,201,037      branches:u                #  273.437 M/sec                    (74.58%)
-               924      branch-misses:u           #    0.00% of all branches          (75.32%)
+             91.71 msec task-clock:u              #    0.990 CPUs utilized          
+       219,045,861      cycles:u                  #    2.388 GHz                      (33.21%)
+       222,325,514      instructions:u            #    1.01  insn per cycle           (50.59%)
+        24,279,047      branch-instructions:u     #  264.730 M/sec                    (50.95%)
+             7,788      branch-misses:u           #    0.03% of all branches          (50.43%)
+        19,627,790      cache-references:u        #  214.014 M/sec                    (32.70%)
+                15      cache-misses:u            #    0.000 % of all cache refs      (32.71%)
 
-       0.093846942 seconds time elapsed
+       0.092676050 seconds time elapsed
 
-       0.085024000 seconds user
-       0.008002000 seconds sys
+       0.089506000 seconds user
+       0.003017000 seconds sys
 
 
 ------------------
 Snippet f
-trans time: 0.069071
+trans time: 0.068538
 trans value: 0
 
  Performance counter stats for './f':
 
-             70.34 msec task-clock:u              #    0.973 CPUs utilized          
-                 0      context-switches:u        #    0.000 K/sec                  
-                 0      cpu-migrations:u          #    0.000 K/sec                  
-               771      page-faults:u             #    0.011 M/sec                  
-       168,778,297      cycles:u                  #    2.399 GHz                      (49.69%)
-       324,754,203      instructions:u            #    1.92  insn per cycle           (75.27%)
-        24,812,990      branches:u                #  352.742 M/sec                    (75.85%)
-               462      branch-misses:u           #    0.00% of all branches          (74.46%)
+             69.83 msec task-clock:u              #    0.983 CPUs utilized          
+       170,121,773      cycles:u                  #    2.436 GHz                      (31.67%)
+       324,621,207      instructions:u            #    1.91  insn per cycle           (48.86%)
+        24,824,101      branch-instructions:u     #  355.490 M/sec                    (50.27%)
+             9,262      branch-misses:u           #    0.04% of all branches          (51.54%)
+         6,208,921      cache-references:u        #   88.914 M/sec                    (33.98%)
+             1,073      cache-misses:u            #    0.017 % of all cache refs      (32.54%)
 
-       0.072305184 seconds time elapsed
+       0.071050092 seconds time elapsed
 
-       0.070258000 seconds user
-       0.001003000 seconds sys
+       0.069702000 seconds user
+       0.001010000 seconds sys
 
 
-1original time: 0.092167
+1original time: 0.090861
 original value: 0
 
  Performance counter stats for './f 1':
 
-             93.43 msec task-clock:u              #    0.984 CPUs utilized          
-                 0      context-switches:u        #    0.000 K/sec                  
-                 0      cpu-migrations:u          #    0.000 K/sec                  
-               770      page-faults:u             #    0.008 M/sec                  
-       227,965,396      cycles:u                  #    2.440 GHz                      (49.43%)
-       402,558,116      instructions:u            #    1.77  insn per cycle           (75.05%)
-        50,005,955      branches:u                #  535.229 M/sec                    (75.40%)
-             6,468      branch-misses:u           #    0.01% of all branches          (75.17%)
+             92.01 msec task-clock:u              #    0.990 CPUs utilized          
+       225,053,040      cycles:u                  #    2.446 GHz                      (32.70%)
+       398,787,626      instructions:u            #    1.77  insn per cycle           (50.10%)
+        49,168,559      branch-instructions:u     #  534.406 M/sec                    (51.13%)
+            10,004      branch-misses:u           #    0.02% of all branches          (51.00%)
+        12,752,091      cache-references:u        #  138.601 M/sec                    (32.60%)
+                 3      cache-misses:u            #    0.000 % of all cache refs      (32.57%)
 
-       0.094914034 seconds time elapsed
+       0.092950534 seconds time elapsed
 
-       0.092221000 seconds user
-       0.002004000 seconds sys
+       0.089829000 seconds user
+       0.002994000 seconds sys
 
 
 ------------------
 Snippet g
-trans time: 0.561468
+trans time: 0.558413
 
  Performance counter stats for './g':
 
-            610.92 msec task-clock:u              #    0.997 CPUs utilized          
-                 0      context-switches:u        #    0.000 K/sec                  
-                 0      cpu-migrations:u          #    0.000 K/sec                  
-            99,502      page-faults:u             #    0.163 M/sec                  
-       671,385,021      cycles:u                  #    1.099 GHz                      (49.93%)
-       600,012,194      instructions:u            #    0.89  insn per cycle           (74.96%)
-       100,259,685      branches:u                #  164.111 M/sec                    (75.05%)
-             3,676      branch-misses:u           #    0.00% of all branches          (75.02%)
+            608.34 msec task-clock:u              #    0.998 CPUs utilized          
+       672,908,899      cycles:u                  #    1.106 GHz                      (33.35%)
+       600,024,401      instructions:u            #    0.89  insn per cycle           (50.11%)
+        99,715,923      branch-instructions:u     #  163.915 M/sec                    (50.20%)
+               571      branch-misses:u           #    0.00% of all branches          (50.05%)
+        19,612,722      cache-references:u        #   32.240 M/sec                    (33.19%)
+           447,297      cache-misses:u            #    2.281 % of all cache refs      (33.20%)
 
-       0.612543142 seconds time elapsed
+       0.609727668 seconds time elapsed
 
-       0.277448000 seconds user
-       0.334335000 seconds sys
+       0.260677000 seconds user
+       0.348568000 seconds sys
 
 
-1original time: 0.431124
+1original time: 0.428046
 
  Performance counter stats for './g 1':
 
-            480.96 msec task-clock:u              #    0.997 CPUs utilized          
-                 0      context-switches:u        #    0.000 K/sec                  
-                 0      cpu-migrations:u          #    0.000 K/sec                  
-            99,503      page-faults:u             #    0.207 M/sec                  
-       344,601,464      cycles:u                  #    0.716 GHz                      (49.95%)
-       799,119,665      instructions:u            #    2.32  insn per cycle           (75.05%)
-       199,981,799      branches:u                #  415.795 M/sec                    (75.05%)
-             5,940      branch-misses:u           #    0.00% of all branches          (74.99%)
+            478.32 msec task-clock:u              #    0.998 CPUs utilized          
+       345,994,293      cycles:u                  #    0.723 GHz                      (33.19%)
+       802,450,678      instructions:u            #    2.32  insn per cycle           (49.91%)
+       199,965,137      branch-instructions:u     #  418.054 M/sec                    (50.14%)
+             5,526      branch-misses:u           #    0.00% of all branches          (50.16%)
+        13,503,459      cache-references:u        #   28.231 M/sec                    (33.35%)
+            12,974      cache-misses:u            #    0.096 % of all cache refs      (33.16%)
 
-       0.482643810 seconds time elapsed
+       0.479408998 seconds time elapsed
 
-       0.131221000 seconds user
-       0.350591000 seconds sys
+       0.125049000 seconds user
+       0.354139000 seconds sys
 
 
 ------------------
 Snippet h
-trans time: 0.399008
+trans time: 0.397295
 
  Performance counter stats for './h':
 
-            418.96 msec task-clock:u              #    0.995 CPUs utilized          
-                 0      context-switches:u        #    0.000 K/sec                  
-                 0      cpu-migrations:u          #    0.000 K/sec                  
-             3,415      page-faults:u             #    0.008 M/sec                  
-     1,002,590,352      cycles:u                  #    2.393 GHz                      (49.89%)
-     2,497,930,882      instructions:u            #    2.49  insn per cycle           (74.94%)
-       324,975,516      branches:u                #  775.665 M/sec                    (75.04%)
-           322,972      branch-misses:u           #    0.10% of all branches          (75.08%)
+            417.16 msec task-clock:u              #    0.997 CPUs utilized          
+       998,290,321      cycles:u                  #    2.393 GHz                      (33.50%)
+     2,487,747,926      instructions:u            #    2.49  insn per cycle           (50.27%)
+       322,604,015      branch-instructions:u     #  773.331 M/sec                    (50.38%)
+           333,946      branch-misses:u           #    0.10% of all branches          (49.97%)
+        11,868,015      cache-references:u        #   28.449 M/sec                    (33.07%)
+           145,614      cache-misses:u            #    1.227 % of all cache refs      (33.08%)
 
-       0.420997813 seconds time elapsed
+       0.418362555 seconds time elapsed
 
-       0.403903000 seconds user
-       0.015956000 seconds sys
+       0.403981000 seconds user
+       0.014034000 seconds sys
 
 
-1original time: 2.054407
+1original time: 2.044349
 
  Performance counter stats for './h 1':
 
-          2,075.18 msec task-clock:u              #    0.999 CPUs utilized          
-                 0      context-switches:u        #    0.000 K/sec                  
-                 0      cpu-migrations:u          #    0.000 K/sec                  
-             3,416      page-faults:u             #    0.002 M/sec                  
-     5,091,498,874      cycles:u                  #    2.454 GHz                      (50.00%)
-     1,840,963,312      instructions:u            #    0.36  insn per cycle           (75.01%)
-       262,793,496      branches:u                #  126.637 M/sec                    (75.04%)
-           420,935      branch-misses:u           #    0.16% of all branches          (74.96%)
+          2,064.51 msec task-clock:u              #    0.999 CPUs utilized          
+     5,057,234,830      cycles:u                  #    2.450 GHz                      (33.34%)
+     1,838,146,155      instructions:u            #    0.36  insn per cycle           (50.02%)
+       262,974,362      branch-instructions:u     #  127.379 M/sec                    (50.01%)
+           429,313      branch-misses:u           #    0.16% of all branches          (50.01%)
+       495,528,305      cache-references:u        #  240.022 M/sec                    (33.32%)
+           140,756      cache-misses:u            #    0.028 % of all cache refs      (33.32%)
 
-       2.076687032 seconds time elapsed
+       2.065569081 seconds time elapsed
 
-       2.061103000 seconds user
-       0.015000000 seconds sys
+       2.049381000 seconds user
+       0.015995000 seconds sys
 
 
 ------------------

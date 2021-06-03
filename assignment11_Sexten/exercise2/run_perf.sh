@@ -32,7 +32,7 @@ do
     rm $task
     echo "Snippet $task"
     gcc -g -std=gnu11 -Wall -Wextra -O3 -fopenmp ${task}.c -o ${task}
-    perf stat ./$task
-    perf stat ./$task 1
+    perf stat -e task-clock,cycles,instructions,branch-instructions,branch-misses,cache-references,cache-misses ./$task
+    perf stat -e task-clock,cycles,instructions,branch-instructions,branch-misses,cache-references,cache-misses ./$task 1
 echo "------------------"
 done
