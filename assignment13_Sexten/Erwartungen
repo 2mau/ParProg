@@ -1,0 +1,3 @@
+Erwartung SIMD: Dadurch das ich mit O3 kompiliere und es eh gut vektorisierbar sein sollte, erwarte ich wenig speed up
+
+Erwartung loop unrolling: Ich denke mit SIMD sollte loop unrolling gut funktionieren, da die vektoroperationen pro thread wrsl schneller sind als die conditionals. Da jedoch bereits ein relativ guter speed up von knapp 6 erreicht wurde wäre einer von 7 sehr schön aber unrealistisch
